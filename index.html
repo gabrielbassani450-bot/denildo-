@@ -415,14 +415,23 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .proc__col-tag{margin-top:16px;display:inline-block;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(138,151,168,.4)}
 
 /* ─── LOC OPEN COLUMNS ───────────────────────── */
-.loc__open{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--g200)}
-.lc-open{padding:48px 40px;border-right:1px solid var(--g200);transition:background .3s var(--ease)}
+.loc__open{display:grid;grid-template-columns:2fr 1fr 1fr;border-top:1px solid var(--g200)}
+.lc-open{padding:48px 40px;border-right:1px solid var(--g200);transition:background .3s var(--ease);text-decoration:none}
 .lc-open:last-child{border-right:none}
 .lc-open:hover{background:var(--g50)}
-.lc-open__ico{width:22px;height:22px;color:var(--gold);margin-bottom:20px;display:block}
+.lc-open__ico{width:22px;height:22px;color:var(--gold);margin-bottom:20px;display:block;transition:color .3s var(--ease)}
 .lc-open__lbl{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g500);margin-bottom:10px;display:block}
 .lc-open__val{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:500;color:var(--g900);margin-bottom:4px;letter-spacing:-.008em;line-height:1.35;display:block}
 .lc-open__sub{font-size:13px;color:var(--g500);font-weight:300;display:block}
+/* Endereço — card destacado com link Maps */
+.lc-open--maps{cursor:pointer;position:relative}
+.lc-open--maps:hover{background:rgba(197,165,90,.04)!important}
+.lc-open--maps:hover .lc-open__ico{color:var(--warm)}
+.lc-open--maps:hover .lc-open__val{color:#fff}
+.lc-open--maps:hover .lc-open--maps__cta{opacity:1;transform:translateX(0)}
+.lc-open--maps .lc-open__val{font-size:1.35rem;line-height:1.28;transition:color .3s var(--ease)}
+.lc-open--maps__cta{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--warm);opacity:0;transform:translateX(-6px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.lc-open--maps__cta svg{width:13px;height:13px;flex-shrink:0}
 
 /* ─── TRUST HORIZONTAL FLOW ──────────────────── */
 .trust__flow{display:flex;align-items:stretch;justify-content:center}
@@ -537,6 +546,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   .tl-grid{grid-template-columns:repeat(2,1fr)}
   .diffs__ed{grid-template-columns:1fr}
   .loc__open{grid-template-columns:1fr 1fr}
+  .lc-open--maps{grid-column:1/-1;border-right:none;border-bottom:1px solid var(--g200)}
   .lc-open:nth-child(2){border-right:none}
   .lc-open:nth-child(3){border-top:1px solid var(--g200);grid-column:1/-1;border-right:none}
   .trust__flow{flex-wrap:wrap}
@@ -1768,12 +1778,16 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
       <h2 class="t2 t2-sm">Atendimento em <em>Cruz Alta e Encantado</em></h2>
     </div>
     <div class="loc__open rv d1">
-      <div class="lc-open">
+      <a class="lc-open lc-open--maps" href="https://maps.google.com/?q=Rua+Marechal+Floriano+Peixoto,+1293,+Centro,+Cruz+Alta,+RS" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Ver endereço no Google Maps">
         <svg class="lc-open__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <span class="lc-open__lbl">Endereço</span>
         <span class="lc-open__val">Rua Marechal Floriano Peixoto, 1293</span>
         <span class="lc-open__sub">Centro · Cruz Alta, RS</span>
-      </div>
+        <span class="lc-open--maps__cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Ver no Google Maps
+        </span>
+      </a>
       <div class="lc-open">
         <svg class="lc-open__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <span class="lc-open__lbl">Horário</span>
