@@ -128,8 +128,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .nav__bg{position:absolute;inset:0;z-index:-1;background:rgba(8,8,9,.96);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 1px 0 rgba(255,255,255,.04),0 6px 32px rgba(0,0,0,.38);opacity:0;will-change:opacity;transition:opacity .5s cubic-bezier(.25,1,.5,1)}
 .nav.solid .nav__bg{opacity:1}
 .nav__i{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav__logo img{height:80px;width:auto;mix-blend-mode:screen;object-fit:contain;filter:brightness(2.4);will-change:transform;transform-origin:left center;transition:transform .5s cubic-bezier(.25,1,.5,1)}
-.nav.solid .nav__logo img{transform:scale(.54)}
+.nav__logo img{height:80px;width:auto;mix-blend-mode:screen;object-fit:contain;filter:brightness(2.4);transform-origin:left center;transition:height .5s cubic-bezier(.25,1,.5,1),transform .5s cubic-bezier(.25,1,.5,1)}
+.nav.solid .nav__logo img{transform:none}
 .nav__links{display:flex;gap:28px;align-items:center}
 .nav__lk{font-size:13px;font-weight:400;color:rgba(255,255,255,.52);transition:color var(--t);position:relative}
 .nav__lk::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .3s var(--ease)}
@@ -1208,13 +1208,14 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
   .proc__col-n{font-size:clamp(3.5rem,12vw,6rem)!important}
 }
 
-/* ── LOGO DESKTOP: maior sem aumentar navbar ─────────────
-   logo 80→114px · padding compensa: 22→6px
-   total nav height: 22+80+22=124 → 6+114+6=126 (idêntico)  */
+/* ── LOGO DESKTOP: maior, navbar encolhe no scroll ───────
+   repouso:  logo 114px + padding 6px  → nav ~126px
+   solid:    logo  48px + padding 12px → nav  ~72px         */
 @media(min-width:861px){
   .nav__logo img{height:114px!important}
   .nav{padding:6px 0!important}
-  .nav.solid{padding:4px 0!important}
+  .nav.solid{padding:12px 0!important}
+  .nav.solid .nav__logo img{height:48px!important}
 }
 </style>
 </head>
