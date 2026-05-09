@@ -574,7 +574,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 /* ─── PARALLAX DEPTH SYSTEM ──────────────────────── */
 /* GPU hint — hero layers */
-.hero__bg,.hero__glow,.hero__arcs,.hero__body,.hero__particles{will-change:transform}
+.hero__bg,.hero__glow,.hero__arcs,.hero__particles{will-change:transform}
 
 /* Svc row hover sweep */
 .svc-row{position:relative}
@@ -1914,22 +1914,9 @@ document.querySelectorAll('.faq__item').forEach(item => {
   btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
 });
 
-/* Hero animated mesh (Stripe-like) */
+/* Hero animated mesh — merged into parallax tick (single rAF loop) */
 const heroMesh = document.querySelector('.hero__mesh');
-if (heroMesh) {
-  let t = 0;
-  (function meshLoop() {
-    t += 0.004;
-    const x1 = (38 + Math.sin(t * 0.6) * 28).toFixed(1);
-    const y1 = (52 + Math.cos(t * 0.45) * 24).toFixed(1);
-    const x2 = (72 + Math.sin(t * 0.35 + 2) * 22).toFixed(1);
-    const y2 = (28 + Math.cos(t * 0.55 + 1) * 20).toFixed(1);
-    heroMesh.style.background =
-      `radial-gradient(ellipse 55% 50% at ${x1}% ${y1}%,rgba(197,165,90,.04) 0%,transparent 55%),` +
-      `radial-gradient(ellipse 45% 55% at ${x2}% ${y2}%,rgba(0,0,0,.3) 0%,transparent 60%)`;
-    requestAnimationFrame(meshLoop);
-  })();
-}
+let _meshT = 0;
 
 /* 3D card tilt (Stripe-like) */
 function applyTilt(selector, intensity) {
@@ -2010,44 +1997,54 @@ document.querySelectorAll('.bwa:not(.bwa-sm)').forEach(btn => {
 
   const mob = () => window.innerWidth < 768;
   const lerp = (a, b, t) => a + (b - a) * t;
-  const F = 0.062; // smoothing factor — lower = floatier, more cinematic
+  const F = 0.11; // responsive but still smooth — 0.062 was too laggy (rubbery)
 
-  // Current (rendered) values
-  let bgY = 0, glowY = 0, arcsY = 0, bodyY = 0, ptclY = 0, jY = 0;
+  // Current (rendered) values — heroBody intentionally excluded (text never lags behind scroll)
+  let bgY = 0, glowY = 0, arcsY = 0, ptclY = 0, jY = 0;
 
   function tick() {
     requestAnimationFrame(tick);
-    if (document.hidden) return; /* pausa quando aba oculta — sem CPU desnecessário */
+    if (document.hidden) return;
+
+    // Mesh animation — merged here so only one rAF loop runs
+    if (heroMesh) {
+      _meshT += 0.0025; // slower drift = more ambient, less distracting
+      const x1 = (38 + Math.sin(_meshT * 0.6) * 28).toFixed(1);
+      const y1 = (52 + Math.cos(_meshT * 0.45) * 24).toFixed(1);
+      const x2 = (72 + Math.sin(_meshT * 0.35 + 2) * 22).toFixed(1);
+      const y2 = (28 + Math.cos(_meshT * 0.55 + 1) * 20).toFixed(1);
+      heroMesh.style.background =
+        `radial-gradient(ellipse 55% 50% at ${x1}% ${y1}%,rgba(197,165,90,.04) 0%,transparent 55%),` +
+        `radial-gradient(ellipse 45% 55% at ${x2}% ${y2}%,rgba(0,0,0,.3) 0%,transparent 60%)`;
+    }
+
     if (mob()) return;
 
     const sy    = window.scrollY;
     const heroH = heroEl ? heroEl.offsetHeight : 900;
+    const cap   = heroH * 1.4;
 
-    // Target values from scroll position
-    const tBg   = sy < heroH * 1.4 ? sy * .26 : heroH * 1.4 * .26;
-    const tGlow = sy < heroH * 1.4 ? sy * .20 : heroH * 1.4 * .20;
-    const tArcs = sy < heroH * 1.4 ? sy * .14 : heroH * 1.4 * .14;
-    const tBody = sy < heroH * 1.4 ? sy * .055 : heroH * 1.4 * .055;
-    const tPtcl = sy < heroH * 1.4 ? sy * .032 : heroH * 1.4 * .032;
+    // Background-only parallax — heroBody is static (text should never rubber-band)
+    const tBg   = Math.min(sy, cap) * .22;
+    const tGlow = Math.min(sy, cap) * .16;
+    const tArcs = Math.min(sy, cap) * .11;
+    const tPtcl = Math.min(sy, cap) * .028;
 
-    // Lerp current → target
     bgY   = lerp(bgY,   tBg,   F);
     glowY = lerp(glowY, tGlow, F);
     arcsY = lerp(arcsY, tArcs, F);
-    bodyY = lerp(bodyY, tBody, F);
     ptclY = lerp(ptclY, tPtcl, F);
 
-    if (heroBg)   heroBg.style.transform   = `translateY(${bgY.toFixed(2)}px)`;
-    if (heroGlow) heroGlow.style.transform = `translateY(${glowY.toFixed(2)}px)`;
-    if (heroArcs) heroArcs.style.transform = `translateY(calc(-50% + ${arcsY.toFixed(2)}px))`;
-    if (heroPtcl) heroPtcl.style.transform = `translateY(${ptclY.toFixed(2)}px)`;
-    if (heroBody) heroBody.style.transform = `translateY(${bodyY.toFixed(2)}px)`;
+    if (heroBg)   heroBg.style.transform   = `translate3d(0,${bgY.toFixed(2)}px,0)`;
+    if (heroGlow) heroGlow.style.transform = `translate3d(0,${glowY.toFixed(2)}px,0)`;
+    if (heroArcs) heroArcs.style.transform = `translate3d(0,calc(-50% + ${arcsY.toFixed(2)}px),0)`;
+    if (heroPtcl) heroPtcl.style.transform = `translate3d(0,${ptclY.toFixed(2)}px,0)`;
 
     // Journey background parallax
     if (journey) {
       const r = journey.getBoundingClientRect();
       if (r.top < window.innerHeight && r.bottom > 0) {
-        const tJ = ((window.innerHeight - r.top) / (window.innerHeight + r.height)) * -28;
+        const tJ = ((window.innerHeight - r.top) / (window.innerHeight + r.height)) * -22;
         jY = lerp(jY, tJ, F);
         journey.style.setProperty('--journey-py', `${jY.toFixed(2)}px`);
       }
@@ -2058,8 +2055,8 @@ document.querySelectorAll('.bwa:not(.bwa-sm)').forEach(btn => {
 
   window.addEventListener('resize', () => {
     if (!mob()) return;
-    bgY = glowY = arcsY = bodyY = ptclY = jY = 0;
-    [heroBg, heroGlow, heroArcs, heroPtcl, heroBody].forEach(el => {
+    bgY = glowY = arcsY = ptclY = jY = 0;
+    [heroBg, heroGlow, heroArcs, heroPtcl].forEach(el => {
       if (el) el.style.transform = '';
     });
     if (journey) journey.style.removeProperty('--journey-py');
