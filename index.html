@@ -1207,6 +1207,15 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
   .diff-card{padding:30px!important}
   .proc__col-n{font-size:clamp(3.5rem,12vw,6rem)!important}
 }
+
+/* ── LOGO DESKTOP: maior sem aumentar navbar ─────────────
+   logo 80→114px · padding compensa: 22→6px
+   total nav height: 22+80+22=124 → 6+114+6=126 (idêntico)  */
+@media(min-width:861px){
+  .nav__logo img{height:114px!important}
+  .nav{padding:6px 0!important}
+  .nav.solid{padding:4px 0!important}
+}
 </style>
 </head>
 <body>
