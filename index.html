@@ -361,8 +361,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 /* ─── DR. DENILDO ───────────────────────────── */
 .dr{padding:120px 0;background:var(--navy)}
 .dr__inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.dr__img-wrap{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4}
-.dr__img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(18%)}
+.dr__img-wrap{position:relative;border-radius:4px;overflow:hidden}
+.dr__img{width:100%;height:auto;display:block;filter:grayscale(5%) brightness(1.06) contrast(1.04)}
 .dr__txt{padding:20px 0}
 .dr__txt .t2{margin-top:14px;margin-bottom:0;font-size:clamp(2.4rem,3.2vw,3.8rem)}
 .dr__line{width:32px;height:1px;background:var(--gold);margin:28px 0}
@@ -371,7 +371,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .dr__cred{display:flex;flex-direction:column;gap:4px}
 .dr__cred-n{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--warm-lt);letter-spacing:-.01em}
 .dr__cred-l{font-size:11px;color:var(--g500);letter-spacing:.06em;text-transform:uppercase;font-weight:400}
-@media(max-width:860px){.dr__inner{grid-template-columns:1fr;gap:40px}.dr__img-wrap{aspect-ratio:3/4;max-height:480px;width:100%}}
+@media(max-width:860px){.dr__inner{grid-template-columns:1fr;gap:40px}.dr__img-wrap{width:100%;max-width:480px;margin:0 auto}}
 
 /* ─── EDITORIAL ROWS (serviços) ─────────────── */
 .svc-rows{margin-top:52px}
@@ -825,7 +825,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .cta-final{background:linear-gradient(180deg,#0A0A0C 0%,#060607 100%)}
 
 /* Dr. section image — boost on dark */
-.dr__img{filter:grayscale(8%) brightness(1.04)}
+/* dr__img filter consolidated below */
 
 /* Hero: darker vignette edges for cinematic feel */
 .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 40%,rgba(0,0,0,.45) 100%);pointer-events:none;z-index:1}
@@ -980,7 +980,6 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
 /* ── DR. SECTION DEPTH ───────────────────────────────── */
 .dr__img-wrap{border-radius:4px;overflow:hidden;
   box-shadow:0 32px 80px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.04)}
-.dr__img{filter:grayscale(5%) brightness(1.06) contrast(1.04)!important}
 .dr__txt .t2{font-size:clamp(2.5rem,3.5vw,4.2rem)!important}
 .dr__bio{font-size:15.5px!important;line-height:1.82!important;color:rgba(194,194,203,.62)!important}
 
