@@ -28,7 +28,7 @@
 <style>
 /* ─── RESET ─────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:'DM Sans',system-ui,sans-serif;background:#0A0A0C;color:var(--g900);overflow-x:hidden;overscroll-behavior:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-feature-settings:'kern' 1,'liga' 1,'calt' 1}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;height:auto;display:block}
@@ -574,7 +574,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 /* ─── PARALLAX DEPTH SYSTEM ──────────────────────── */
 /* GPU hint — hero layers */
-.hero__bg,.hero__glow,.hero__arcs,.hero__particles{will-change:transform}
+/* will-change removed — no parallax JS, no need for compositor layers */
 
 /* Svc row hover sweep */
 .svc-row{position:relative}
@@ -1239,21 +1239,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero__bg" aria-hidden="true"></div>
-  <div class="hero__mesh" aria-hidden="true"></div>
   <div class="hero__glow" aria-hidden="true"></div>
   <div class="hero__grain" aria-hidden="true"></div>
-  <div class="hero__particles" aria-hidden="true">
-    <span class="hero__p" style="left:6%;animation-duration:8s;animation-delay:0s;--dx:10px"></span>
-    <span class="hero__p" style="left:13%;animation-duration:11s;animation-delay:1.8s;--dx:-7px"></span>
-    <span class="hero__p" style="left:21%;animation-duration:7s;animation-delay:3.2s;--dx:14px"></span>
-    <span class="hero__p" style="left:29%;animation-duration:9.5s;animation-delay:0.8s;--dx:-11px"></span>
-    <span class="hero__p" style="left:38%;animation-duration:13s;animation-delay:2.4s;--dx:8px"></span>
-    <span class="hero__p" style="left:48%;animation-duration:6.5s;animation-delay:4.5s;--dx:-6px"></span>
-    <span class="hero__p" style="left:57%;animation-duration:10s;animation-delay:1.2s;--dx:12px"></span>
-    <span class="hero__p" style="left:66%;animation-duration:8.5s;animation-delay:3.8s;--dx:-9px"></span>
-    <span class="hero__p" style="left:75%;animation-duration:12s;animation-delay:2s;--dx:7px"></span>
-    <span class="hero__p" style="left:85%;animation-duration:7.5s;animation-delay:5.2s;--dx:-13px"></span>
-  </div>
   <div class="hero__arcs" aria-hidden="true">
     <svg viewBox="0 0 480 560" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M 80 540 L 80 220 Q 80 40 240 40 Q 400 40 400 220 L 400 540" stroke="rgba(138,151,168,0.14)" stroke-width="1.5" stroke-dasharray="4 8"/>
@@ -1824,244 +1811,76 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
 </div>
 
 <script>
-/* ── SCROLL: nativo (mais fluido) ─────────────────── */
-
-/* Progress bar */
-const prog = document.getElementById('prog');
-window.addEventListener('scroll', () => {
-  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-  prog.style.transform = `scaleX(${Math.min(pct, 1)})`;
-}, { passive: true });
-
-/* Nav solid */
+/* ── NAV SOLID ─────────────────────────────────────── */
 const nav = document.getElementById('nav');
-const solidNav = () => nav.classList.toggle('solid', window.scrollY > 60);
-window.addEventListener('scroll', solidNav, { passive: true });
-solidNav();
+const onScroll = () => {
+  const sy = window.scrollY;
+  nav.classList.toggle('solid', sy > 60);
+  const pct = sy / (document.documentElement.scrollHeight - window.innerHeight);
+  document.getElementById('prog').style.transform = `scaleX(${Math.min(pct,1)})`;
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
-/* ── SMOOTH ANCHOR SCROLL ───────────────────────── */
-function smoothScrollTo(to, duration) {
-  const from = window.scrollY;
-  const dist = to - from;
-  let t0 = null;
-  /* ease-in-out-cubic: arranca suave, acelera, desacelera */
-  const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3) / 2;
-  const step = ts => {
-    if (!t0) t0 = ts;
-    const p = Math.min((ts - t0) / duration, 1);
-    window.scrollTo(0, from + dist * ease(p));
-    if (p < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
+/* ── ANCHOR SCROLL: offset para nav fixa ──────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
-    if (id === '#') { e.preventDefault(); smoothScrollTo(0, 900); return; }
-    /* validar: só aceita #id com caracteres seguros — previne selector injection */
-    if (!/^#[\w-]+$/.test(id)) return;
+    if (!/^#[\w-]*$/.test(id)) return;
+    if (id === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     const target = document.getElementById(id.slice(1));
     if (!target) return;
     e.preventDefault();
-    const navH = document.getElementById('nav').offsetHeight;
-    smoothScrollTo(target.getBoundingClientRect().top + window.scrollY - navH, 900);
+    const top = target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight;
+    window.scrollTo({ top, behavior: 'smooth' });
   });
 });
 
-/* Scroll reveal */
+/* ── REVEAL ON SCROLL ──────────────────────────────── */
 const io = new IntersectionObserver(
-  entries => entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
-  }),
-  { threshold: 0.07, rootMargin: '0px 0px -36px 0px' }
+  entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }),
+  { threshold: 0.07, rootMargin: '0px 0px -32px 0px' }
 );
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
+document.querySelectorAll('.rv, .journey__item').forEach(el => io.observe(el));
 
-/* Counter animation */
-function countUp(el, target, duration) {
-  const start = performance.now();
-  const update = now => {
-    const p = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(ease * target);
-    if (p < 1) requestAnimationFrame(update);
-  };
-  requestAnimationFrame(update);
-}
+/* ── COUNTER ───────────────────────────────────────── */
 const cio = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      const t = parseInt(e.target.dataset.count, 10);
-      if (!isNaN(t)) countUp(e.target, t, 1800);
-      cio.unobserve(e.target);
-    }
+    if (!e.isIntersecting) return;
+    const t = parseInt(e.target.dataset.count, 10);
+    if (isNaN(t)) return;
+    const s = performance.now();
+    const u = now => {
+      const p = Math.min((now - s) / 1600, 1);
+      e.target.textContent = Math.round((1 - Math.pow(1-p,3)) * t);
+      if (p < 1) requestAnimationFrame(u);
+    };
+    requestAnimationFrame(u);
+    cio.unobserve(e.target);
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 
-/* FAQ accordion */
+/* ── TIMELINE FILL ─────────────────────────────────── */
+const tlFill = document.querySelector('.tl-track-fill');
+if (tlFill) {
+  new IntersectionObserver(([e]) => { if (e.isIntersecting) tlFill.classList.add('on'); }, { threshold: 0.4 }).observe(tlFill);
+}
+
+/* ── FAQ ───────────────────────────────────────────── */
 document.querySelectorAll('.faq__item').forEach(item => {
   const btn = item.querySelector('.faq__q');
   const toggle = () => {
     const open = item.classList.contains('open');
     document.querySelectorAll('.faq__item').forEach(i => {
       i.classList.remove('open');
-      i.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
+      i.querySelector('.faq__q').setAttribute('aria-expanded','false');
     });
-    if (!open) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+    if (!open) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
   };
   btn.addEventListener('click', toggle);
-  btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  btn.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); toggle(); } });
 });
-
-/* Hero animated mesh — merged into parallax tick (single rAF loop) */
-const heroMesh = document.querySelector('.hero__mesh');
-let _meshT = 0;
-
-/* 3D card tilt (Stripe-like) */
-function applyTilt(selector, intensity) {
-  document.querySelectorAll(selector).forEach(el => {
-    el.addEventListener('mousemove', e => {
-      const r = el.getBoundingClientRect();
-      const scale = intensity * 0.42; /* reduced — premium is subtle */
-      const rx = ((e.clientY - r.top  - r.height / 2) / (r.height / 2)) * -scale;
-      const ry = ((e.clientX - r.left - r.width  / 2) / (r.width  / 2)) *  scale;
-      el.style.transition = 'transform .1s linear';
-      el.style.transform   = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)`;
-    });
-    el.addEventListener('mouseleave', () => {
-      el.style.transition = 'transform .7s cubic-bezier(.16,1,.3,1)';
-      el.style.transform  = '';
-      setTimeout(() => { el.style.transition = ''; }, 750);
-    });
-  });
-}
-applyTilt('.svc-card', 6);
-applyTilt('.diff-card', 5);
-applyTilt('.journey__card', 5);
-applyTilt('.tl-card', 6);
-applyTilt('.auto__card', 4);
-
-/* Manifesto mouse spotlight */
-const manifesto = document.querySelector('.manifesto');
-if (manifesto) {
-  manifesto.addEventListener('mousemove', e => {
-    const r = manifesto.getBoundingClientRect();
-    manifesto.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-    manifesto.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
-  });
-}
-
-/* Journey number activation on scroll */
-const jio = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('on'); jio.unobserve(e.target); }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.journey__item').forEach(el => jio.observe(el));
-
-/* Timeline track fill on scroll */
-const tlTrackFill = document.querySelector('.tl-track-fill');
-if (tlTrackFill) {
-  const tlio = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); tlio.unobserve(e.target); } });
-  }, { threshold: 0.4 });
-  tlio.observe(tlTrackFill);
-}
-
-/* Magnetic buttons */
-document.querySelectorAll('.bwa:not(.bwa-sm)').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const r = btn.getBoundingClientRect();
-    const x = (e.clientX - r.left  - r.width  / 2) * 0.09;
-    const y = (e.clientY - r.top   - r.height / 2) * 0.09;
-    btn.style.transform = `translate(${x}px,${y}px) translateY(-2px)`;
-  });
-  btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
-});
-
-/* ── PARALLAX · LERP SYSTEM ─────────────────────── */
-/* Lerped parallax: values ease toward scroll target each frame
-   → eliminates snap/jerk, creates inertial floating depth       */
-(function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const $ = s => document.querySelector(s);
-
-  const heroEl   = $('.hero');
-  const heroBg   = $('.hero__bg');
-  const heroGlow = $('.hero__glow');
-  const heroArcs = $('.hero__arcs');
-  const heroBody = $('.hero__body');
-  const heroPtcl = $('.hero__particles');
-  const journey  = $('.journey');
-
-  const mob = () => window.innerWidth < 768;
-  const lerp = (a, b, t) => a + (b - a) * t;
-  const F = 0.11; // responsive but still smooth — 0.062 was too laggy (rubbery)
-
-  // Current (rendered) values — heroBody intentionally excluded (text never lags behind scroll)
-  let bgY = 0, glowY = 0, arcsY = 0, ptclY = 0, jY = 0;
-
-  function tick() {
-    requestAnimationFrame(tick);
-    if (document.hidden) return;
-
-    // Mesh animation — merged here so only one rAF loop runs
-    if (heroMesh) {
-      _meshT += 0.0025; // slower drift = more ambient, less distracting
-      const x1 = (38 + Math.sin(_meshT * 0.6) * 28).toFixed(1);
-      const y1 = (52 + Math.cos(_meshT * 0.45) * 24).toFixed(1);
-      const x2 = (72 + Math.sin(_meshT * 0.35 + 2) * 22).toFixed(1);
-      const y2 = (28 + Math.cos(_meshT * 0.55 + 1) * 20).toFixed(1);
-      heroMesh.style.background =
-        `radial-gradient(ellipse 55% 50% at ${x1}% ${y1}%,rgba(197,165,90,.04) 0%,transparent 55%),` +
-        `radial-gradient(ellipse 45% 55% at ${x2}% ${y2}%,rgba(0,0,0,.3) 0%,transparent 60%)`;
-    }
-
-    if (mob()) return;
-
-    const sy    = window.scrollY;
-    const heroH = heroEl ? heroEl.offsetHeight : 900;
-    const cap   = heroH * 1.4;
-
-    // Background-only parallax — heroBody is static (text should never rubber-band)
-    const tBg   = Math.min(sy, cap) * .22;
-    const tGlow = Math.min(sy, cap) * .16;
-    const tArcs = Math.min(sy, cap) * .11;
-    const tPtcl = Math.min(sy, cap) * .028;
-
-    bgY   = lerp(bgY,   tBg,   F);
-    glowY = lerp(glowY, tGlow, F);
-    arcsY = lerp(arcsY, tArcs, F);
-    ptclY = lerp(ptclY, tPtcl, F);
-
-    if (heroBg)   heroBg.style.transform   = `translate3d(0,${bgY.toFixed(2)}px,0)`;
-    if (heroGlow) heroGlow.style.transform = `translate3d(0,${glowY.toFixed(2)}px,0)`;
-    if (heroArcs) heroArcs.style.transform = `translate3d(0,calc(-50% + ${arcsY.toFixed(2)}px),0)`;
-    if (heroPtcl) heroPtcl.style.transform = `translate3d(0,${ptclY.toFixed(2)}px,0)`;
-
-    // Journey background parallax
-    if (journey) {
-      const r = journey.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) {
-        const tJ = ((window.innerHeight - r.top) / (window.innerHeight + r.height)) * -22;
-        jY = lerp(jY, tJ, F);
-        journey.style.setProperty('--journey-py', `${jY.toFixed(2)}px`);
-      }
-    }
-  }
-
-  requestAnimationFrame(tick);
-
-  window.addEventListener('resize', () => {
-    if (!mob()) return;
-    bgY = glowY = arcsY = ptclY = jY = 0;
-    [heroBg, heroGlow, heroArcs, heroPtcl].forEach(el => {
-      if (el) el.style.transform = '';
-    });
-    if (journey) journey.style.removeProperty('--journey-py');
-  }, { passive: true });
-})();
 </script>
 </body>
 </html>
