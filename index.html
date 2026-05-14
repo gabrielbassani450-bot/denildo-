@@ -8,21 +8,21 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0C0C0E">
 <link rel="canonical" href="https://newhair.com.br/">
-<link rel="icon" type="image/png" href="logo.png" sizes="any">
-<link rel="apple-touch-icon" href="logo.png">
+<link rel="icon" type="image/png" href="logo-dark.png" sizes="any">
+<link rel="apple-touch-icon" href="logo-dark.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://newhair.com.br/">
 <meta property="og:title" content="New Hair — Transplante Capilar | Dr. Denildo Sobrinho">
 <meta property="og:description" content="Recupere seus cabelos com técnica fio a fio e protocolo ortomolecular em Cruz Alta, RS. Avalie seu caso com o Dr. Denildo Sobrinho.">
-<meta property="og:image" content="https://newhair.com.br/foto-dr.jpg">
+<meta property="og:image" content="https://newhair.com.br/logo-dark.png">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://newhair.com.br/foto-dr.jpg">
+<meta name="twitter:image" content="https://newhair.com.br/logo-dark.png">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'none'; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalBusiness","name":"New Hair Transplante Capilar","url":"https://newhair.com.br","description":"Clínica especializada em transplante capilar fio a fio e tratamentos ortomoleculares em Cruz Alta, RS","address":{"@type":"PostalAddress","streetAddress":"Rua Marechal Floriano Peixoto, 1293","addressLocality":"Cruz Alta","addressRegion":"RS","addressCountry":"BR"},"openingHours":"Mo-Sa 09:00-19:00","medicalSpecialty":"Dermatology","image":"https://newhair.com.br/foto-dr.jpg"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalBusiness","name":"New Hair Transplante Capilar","url":"https://newhair.com.br","description":"Clínica especializada em transplante capilar fio a fio e tratamentos ortomoleculares em Cruz Alta, RS","address":{"@type":"PostalAddress","streetAddress":"Rua Marechal Floriano Peixoto, 1293","addressLocality":"Cruz Alta","addressRegion":"RS","addressCountry":"BR"},"openingHours":"Mo-Sa 09:00-19:00","medicalSpecialty":"Dermatology","image":"https://newhair.com.br/logo-dark.png"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,500;0,600;1,200;1,300;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -120,7 +120,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .d4{transition-delay:.39s}.d5{transition-delay:.49s}.d6{transition-delay:.59s}
 
 /* ─── PROGRESS BAR ───────────────────────────── */
-#prog{position:fixed;top:0;left:0;height:2px;width:100%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));transform:scaleX(0);transform-origin:left;z-index:9999;transition:transform .08s linear}
+#prog{position:fixed;top:0;left:0;height:2px;width:100%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));transform:scaleX(0);transform-origin:left;z-index:9999;will-change:transform}
 
 /* ─── NAV ────────────────────────────────────── */
 /* bg via opacity (GPU). padding em fixed element = reflow isolado, ok. */
@@ -362,7 +362,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 /* ─── DR. DENILDO ───────────────────────────── */
 .dr{padding:120px 0;background:var(--navy)}
 .dr__inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.dr__img-wrap{position:relative;border-radius:4px;overflow:hidden}
+.dr__img-wrap{position:relative;border-radius:4px;overflow:hidden;max-width:460px}
 .dr__img{width:100%;height:auto;display:block;filter:grayscale(5%) brightness(1.06) contrast(1.04)}
 .dr__txt{padding:20px 0}
 .dr__txt .t2{margin-top:14px;margin-bottom:0;font-size:clamp(2.4rem,3.2vw,3.8rem)}
@@ -372,7 +372,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .dr__cred{display:flex;flex-direction:column;gap:4px}
 .dr__cred-n{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--warm-lt);letter-spacing:-.01em}
 .dr__cred-l{font-size:11px;color:var(--g500);letter-spacing:.06em;text-transform:uppercase;font-weight:400}
-@media(max-width:860px){.dr__inner{grid-template-columns:1fr;gap:40px}.dr__img-wrap{width:100%;max-width:480px;margin:0 auto}}
+@media(max-width:860px){.dr__inner{grid-template-columns:1fr;gap:40px}.dr__img-wrap{width:100%;max-width:420px;margin:0 auto}}
+@media(max-width:560px){.dr__img-wrap{max-width:320px}}
 
 /* ─── EDITORIAL ROWS (serviços) ─────────────── */
 .svc-rows{margin-top:52px}
@@ -500,6 +501,30 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .tl-time{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);background:rgba(138,151,168,.1);padding:4px 12px;border-radius:var(--rf);margin-bottom:12px}
 .tl-title{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:600;color:var(--g900);margin-bottom:7px;letter-spacing:-.012em}
 .tl-body{font-size:13px;line-height:1.74;color:var(--g500);font-weight:300}
+
+/* ─── ANTES E DEPOIS ────────────────────────── */
+.results{padding:160px 0;background:var(--navy-xl);position:relative;overflow:hidden}
+.results::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 50% 0%,rgba(197,165,90,.04) 0%,transparent 55%);pointer-events:none}
+.results__hd{text-align:center;margin-bottom:72px}
+.results__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:720px;margin:0 auto}
+.ba-wrap{display:flex;flex-direction:column}
+.ba{position:relative;overflow:hidden;border-radius:10px;aspect-ratio:3/4;cursor:ew-resize;user-select:none;-webkit-user-select:none;touch-action:pan-y;border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 24px 64px rgba(0,0,0,.6);background:var(--g100)}
+.ba__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;pointer-events:none;-webkit-user-drag:none;user-select:none}
+.ba__after{clip-path:inset(0 calc(100% - var(--ba-p,50%)) 0 0);will-change:clip-path}
+.ba__handle{position:absolute;top:0;bottom:0;left:var(--ba-p,50%);transform:translateX(-50%);width:44px;display:flex;flex-direction:column;align-items:center;pointer-events:none;will-change:left}
+.ba__line{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:1px;background:linear-gradient(to bottom,transparent 0%,rgba(197,165,90,.75) 12%,rgba(228,201,123,.92) 50%,rgba(197,165,90,.75) 88%,transparent 100%)}
+.ba__btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(6,6,7,.92);border:1px solid rgba(197,165,90,.32);display:flex;align-items:center;justify-content:center;color:rgba(228,201,123,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 22px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.07);transition:border-color .3s,box-shadow .35s,transform .3s var(--spring)}
+.ba__btn svg{width:16px;height:16px;flex-shrink:0}
+.ba:hover .ba__btn,.ba.ba--active .ba__btn{border-color:rgba(228,201,123,.55);box-shadow:0 4px 28px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.1),0 0 22px rgba(197,165,90,.18)}
+.ba.ba--active .ba__btn{transform:translateY(-50%) scale(1.1)}
+.ba__lbl{position:absolute;top:18px;font-size:8.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.72);background:rgba(0,0,0,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.09);padding:5px 11px;border-radius:4px;pointer-events:none;transition:opacity .4s}
+.ba__lbl--b{left:14px}
+.ba__lbl--a{right:14px}
+.ba__meta{display:flex;align-items:baseline;justify-content:space-between;padding:13px 2px 0}
+.ba__case{font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--warm);opacity:.5}
+.ba__desc{font-size:12.5px;color:rgba(255,255,255,.28);font-weight:300;letter-spacing:.01em}
+@media(max-width:860px){.results__grid{gap:16px}.results{padding:120px 0}}
+@media(max-width:560px){.results__grid{grid-template-columns:1fr;gap:20px;max-width:300px}.results{padding:96px 0}.ba{aspect-ratio:4/5}}
 
 /* ─── MANIFESTO ──────────────────────────────── */
 .manifesto{padding:140px 0;background:var(--navy-xl);position:relative;overflow:hidden;text-align:center}
@@ -1280,7 +1305,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
         <span class="lr lr1">ainda é <em>você?</em></span>
       </h1>
       <p class="hero__sub rv d2">
-        Transplante fio a fio. Soroterapia ortomolecular. Protocolo personalizado. Três abordagens — um resultado permanente.
+        Transplante fio a fio. Protocolo ortomolecular. Resultado permanente.
       </p>
       <div class="hero__actions rv d3">
         <a href="https://wa.me/5555992112028?text=Olá%2C+vim+pelo+site+e+quero+resgatar+o+voucher+de+50%25+para+agendar+minha+primeira+consulta!" class="bwa" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
@@ -1293,7 +1318,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
         <div class="hero__vc-ico"><span class="shimmer">50%</span></div>
         <div>
           <p class="hero__vc-tag">Voucher Exclusivo</p>
-          <p class="hero__vc-val">50% de desconto na primeira consulta. Oferta por tempo limitado — agende agora.</p>
+          <p class="hero__vc-val">50% de desconto na primeira consulta.</p>
         </div>
       </div>
       <div style="margin-top:52px" class="rv d5">
@@ -1302,6 +1327,153 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
           Conheça o tratamento
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- DR. DENILDO -->
+<section class="dr">
+  <div class="w">
+    <div class="dr__inner rv">
+      <div class="dr__img-wrap">
+        <img src="foto-dr.jpg" alt="Dr. Denildo Sobrinho realizando procedimento" class="dr__img" loading="lazy" decoding="async">
+      </div>
+      <div class="dr__txt">
+        <span class="ey">O especialista</span>
+        <h2 class="t2">Dr. Denildo<br>Sobrinho</h2>
+        <div class="dr__line"></div>
+        <p class="dr__bio">Especialista em transplante capilar e medicina ortomolecular. Protocolo personalizado, acompanhamento contínuo. Atende em Cruz Alta e Encantado, RS.</p>
+        <div class="dr__creds">
+          <div class="dr__cred"><span class="dr__cred-n">FUE</span><span class="dr__cred-l">Técnica fio a fio</span></div>
+          <div class="dr__cred"><span class="dr__cred-n">CRM</span><span class="dr__cred-l">Registrado RS</span></div>
+          <div class="dr__cred"><span class="dr__cred-n">+7</span><span class="dr__cred-l">Anos de experiência</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="svcs" id="servicos">
+  <div class="w">
+    <div class="svcs__hd">
+      <div class="rv">
+        <span class="ey">Serviços</span>
+        <h2 class="t2">Tratamentos <em>especializados</em></h2>
+      </div>
+      <a href="https://wa.me/5555992112028?text=Olá%2C+quero+saber+mais+sobre+os+serviços." class="bgh rv d1" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Consultar preços →</a>
+    </div>
+    <div class="svc-rows rv d1">
+      <div class="svc-row svc-row--feat">
+        <span class="svc-row__n">01</span>
+        <div>
+          <span class="svc-row__sub">Procedimento Principal</span>
+          <h3 class="svc-row__title">Transplante Capilar Fio a Fio <span style="font-style:italic;color:var(--gold-dk)">(FUE)</span></h3>
+          <p class="svc-row__body">Sem cicatriz linear. Resultado natural e permanente. Retorno em 3 a 5 dias.</p>
+          <div class="svc-row__cta">
+            <a href="https://wa.me/5555992112028?text=Olá%2C+quero+saber+mais+sobre+o+transplante+capilar+fio+a+fio." class="bwa bwa-sm" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Agendar Avaliação</a>
+          </div>
+        </div>
+        <span class="svc-row__arr">→</span>
+      </div>
+      <div class="svc-row">
+        <span class="svc-row__n">02</span>
+        <div>
+          <h3 class="svc-row__title">Soroterapia Ortomolecular</h3>
+          <p class="svc-row__body">Nutrição folicular via intravenosa. Acelera o crescimento e fortalece os fios.</p>
+        </div>
+        <span class="svc-row__arr">→</span>
+      </div>
+      <div class="svc-row">
+        <span class="svc-row__n">03</span>
+        <div>
+          <h3 class="svc-row__title">Tratamento de Queda Capilar</h3>
+          <p class="svc-row__body">Identificação e tratamento da causa raiz. Acompanhamento clínico contínuo.</p>
+        </div>
+        <span class="svc-row__arr">→</span>
+      </div>
+      <div class="svc-row">
+        <span class="svc-row__n">04</span>
+        <div>
+          <h3 class="svc-row__title">Suplementação Capilar</h3>
+          <p class="svc-row__body">Prescrição baseada no perfil metabólico. Fios mais fortes de dentro para fora.</p>
+        </div>
+        <span class="svc-row__arr">→</span>
+      </div>
+      <div class="svc-row">
+        <span class="svc-row__n">05</span>
+        <div>
+          <h3 class="svc-row__title">Análise Capilar Completa</h3>
+          <p class="svc-row__body">Diagnóstico completo: couro cabeludo, densidade e padrão de queda.</p>
+        </div>
+        <span class="svc-row__arr">→</span>
+      </div>
+      <div class="svc-row">
+        <span class="svc-row__n">06</span>
+        <div>
+          <h3 class="svc-row__title">Microagulhamento Capilar</h3>
+          <p class="svc-row__body">Estimula a regeneração folicular e potencializa a absorção dos ativos.</p>
+        </div>
+        <span class="svc-row__arr">→</span>
+      </div>
+      <div class="svc-row">
+        <span class="svc-row__n">07</span>
+        <div>
+          <h3 class="svc-row__title">Pós-operatório Assistido</h3>
+          <p class="svc-row__body">Revisão, suplementação ajustada e cuidados pós-transplante.</p>
+        </div>
+        <span class="svc-row__arr">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANTES E DEPOIS -->
+<section class="results">
+  <div class="w">
+    <div class="results__hd rv">
+      <span class="ey ey-lt">Resultados reais</span>
+      <h2 class="t2 t2-w">Antes e <em>Depois</em></h2>
+      <p class="lead lead-w" style="max-width:400px;margin:16px auto 0">Transformações reais. Resultados permanentes.</p>
+    </div>
+    <div class="results__grid">
+
+      <div class="ba-wrap rv d1">
+        <div class="ba" data-ba>
+          <img class="ba__img ba__before" src="depois-1.jpg" alt="Depois — transplante capilar" draggable="false" loading="lazy">
+          <img class="ba__img ba__after"  src="antes-1.jpg" alt="Antes — transplante capilar" draggable="false" loading="lazy">
+          <div class="ba__handle" aria-hidden="true">
+            <div class="ba__line"></div>
+            <div class="ba__btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 3 12 9 6"/><polyline points="15 6 21 12 15 18"/>
+              </svg>
+            </div>
+          </div>
+          <span class="ba__lbl ba__lbl--b">Antes</span>
+          <span class="ba__lbl ba__lbl--a">Depois</span>
+        </div>
+        <div class="ba__meta"><span class="ba__case">Caso 01</span><span class="ba__desc">Linha frontal restaurada</span></div>
+      </div>
+
+      <div class="ba-wrap rv d2">
+        <div class="ba" data-ba>
+          <img class="ba__img ba__before" src="depois-2.jpg" alt="Depois — transplante capilar" draggable="false" loading="lazy">
+          <img class="ba__img ba__after"  src="antes-2.jpg" alt="Antes — transplante capilar" draggable="false" loading="lazy">
+          <div class="ba__handle" aria-hidden="true">
+            <div class="ba__line"></div>
+            <div class="ba__btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 3 12 9 6"/><polyline points="15 6 21 12 15 18"/>
+              </svg>
+            </div>
+          </div>
+          <span class="ba__lbl ba__lbl--b">Antes</span>
+          <span class="ba__lbl ba__lbl--a">Depois</span>
+        </div>
+        <div class="ba__meta"><span class="ba__case">Caso 02</span><span class="ba__desc">Densidade recuperada</span></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1333,245 +1505,6 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
   </div>
 </div>
 
-<!-- JOURNEY -->
-<section class="journey" aria-labelledby="journey-hd">
-  <div class="w">
-    <div class="journey__hd rv">
-      <span class="ey ey-lt">A jornada</span>
-      <h2 class="t2 t2-w" id="journey-hd">Cada história começa<br><em>com uma decisão</em></h2>
-    </div>
-    <div class="journey__items">
-      <div class="journey__item rv d1">
-        <div class="journey__n" aria-hidden="true">01</div>
-        <div class="journey__card">
-          <span class="journey__phase">O reconhecimento</span>
-          <h3 class="journey__title">Você olha no espelho e percebe<br>que <em>algo não é mais você</em></h3>
-          <p class="journey__body">A queda silenciosa. As fotos que você começa a evitar. O reflexo que já não parece seu. É o momento em que muitas pessoas decidem aceitar — mas não precisa ser assim.</p>
-        </div>
-      </div>
-      <div class="journey__item rv d2">
-        <div class="journey__n" aria-hidden="true">02</div>
-        <div class="journey__card">
-          <span class="journey__phase">A decisão</span>
-          <h3 class="journey__title">Você decide que <em>isso vai mudar</em></h3>
-          <p class="journey__body">Uma avaliação honesta. Um diagnóstico preciso. Um protocolo feito para você — não para todo mundo. Aqui começa a diferença entre tratar o sintoma e curar a causa real.</p>
-        </div>
-      </div>
-      <div class="journey__item rv d3">
-        <div class="journey__n" aria-hidden="true">03</div>
-        <div class="journey__card">
-          <span class="journey__phase">A transformação</span>
-          <h3 class="journey__title">Você se reconhece<br><em>no espelho de novo</em></h3>
-          <p class="journey__body">Não é sobre cabelo. É sobre voltar a entrar numa sala sem pensar no que os outros vão notar. É sobre ser você — completo, confiante, presente.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AUTORIDADE -->
-<section class="auto" id="autoridade">
-  <div class="w">
-    <div class="auto__g">
-      <div>
-        <span class="ey ey-dk rv">Especialista Capilar</span>
-        <h2 class="t2 rv d1">Dr. Denildo Sobrinho —<br><em>referência regional</em></h2>
-        <span class="line rv d1"></span>
-        <p class="lead rv d2" style="margin-top:4px">Atendimento especializado em saúde capilar disponível onde você está — sem precisar de grandes centros.</p>
-        <ul class="auto__list">
-          <li class="auto__item rv d2"><span class="auto__chk"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Transplante capilar fio a fio — técnica FUE de precisão cirúrgica</li>
-          <li class="auto__item rv d3"><span class="auto__chk"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Soroterapia ortomolecular — nutrição capilar via intravenosa</li>
-          <li class="auto__item rv d3"><span class="auto__chk"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Protocolo integrado: transplante + suplementação + acompanhamento</li>
-          <li class="auto__item rv d4"><span class="auto__chk"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Atendimento em Cruz Alta e Encantado, RS — 09h às 19h</li>
-          <li class="auto__item rv d4"><span class="auto__chk"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Diagnóstico capilar personalizado — sem protocolos genéricos</li>
-        </ul>
-      </div>
-      <div class="auto__card rv d2">
-        <div class="auto__card-line"></div>
-        <blockquote class="auto__card-q">"Recuperar o cabelo é recuperar <b>a confiança</b> em si mesmo."</blockquote>
-        <p class="auto__card-attr">— Dr. Denildo Sobrinho · Especialista Capilar</p>
-        <div class="auto__stats">
-          <div class="auto__stat rv"><div class="auto__stat-v">7+</div><div class="auto__stat-l">Serviços disponíveis</div></div>
-          <div class="auto__stat rv d1"><div class="auto__stat-v">2</div><div class="auto__stat-l">Cidades atendidas</div></div>
-          <div class="auto__stat rv d2"><div class="auto__stat-v">360°</div><div class="auto__stat-l">Visão ortomolecular</div></div>
-          <div class="auto__stat rv d3"><div class="auto__stat-v">FUE</div><div class="auto__stat-l">Transplante fio a fio</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROBLEMA + SOLUÇÃO -->
-<section class="probsol">
-  <div class="w">
-    <div class="probsol__hd rv">
-      <span class="ey">O problema real</span>
-      <h2 class="t2">A calvície vai além<br>do <em>espelho</em></h2>
-      <p class="lead">Entendemos o que você sente — e temos a resposta certa para cada parte desse problema.</p>
-    </div>
-    <div class="probsol__cols">
-      <div class="ps-prob rv d1">
-        <div class="ps-col-hd">
-          <span class="ps-col-ico" style="background:rgba(239,68,68,.1)"><svg viewBox="0 0 20 20" fill="none" stroke="#ef4444" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="8"/><line x1="10" y1="6" x2="10" y2="11"/><circle cx="10" cy="14" r=".5" fill="#ef4444"/></svg></span>
-          <span class="ps-col-lbl" style="color:#dc2626">O que você enfrenta</span>
-        </div>
-        <ul class="ps-items">
-          <li class="ps-item" style="color:var(--g700)"><span class="ps-item-ico" style="background:rgba(239,68,68,.08)"><svg viewBox="0 0 10 10" fill="none" stroke="#ef4444" stroke-width="2" aria-hidden="true"><line x1="2" y1="2" x2="8" y2="8"/><line x1="8" y1="2" x2="2" y2="8"/></svg></span>Autoestima comprometida pelo avanço da calvície</li>
-          <li class="ps-item" style="color:var(--g700)"><span class="ps-item-ico" style="background:rgba(239,68,68,.08)"><svg viewBox="0 0 10 10" fill="none" stroke="#ef4444" stroke-width="2" aria-hidden="true"><line x1="2" y1="2" x2="8" y2="8"/><line x1="8" y1="2" x2="2" y2="8"/></svg></span>Queda excessiva sem diagnóstico da causa real</li>
-          <li class="ps-item" style="color:var(--g700)"><span class="ps-item-ico" style="background:rgba(239,68,68,.08)"><svg viewBox="0 0 10 10" fill="none" stroke="#ef4444" stroke-width="2" aria-hidden="true"><line x1="2" y1="2" x2="8" y2="8"/><line x1="8" y1="2" x2="2" y2="8"/></svg></span>Tratamentos superficiais que não atacam a origem</li>
-          <li class="ps-item" style="color:var(--g700)"><span class="ps-item-ico" style="background:rgba(239,68,68,.08)"><svg viewBox="0 0 10 10" fill="none" stroke="#ef4444" stroke-width="2" aria-hidden="true"><line x1="2" y1="2" x2="8" y2="8"/><line x1="8" y1="2" x2="2" y2="8"/></svg></span>Medo do resultado artificial ou imperfeito</li>
-          <li class="ps-item" style="color:var(--g700)"><span class="ps-item-ico" style="background:rgba(239,68,68,.08)"><svg viewBox="0 0 10 10" fill="none" stroke="#ef4444" stroke-width="2" aria-hidden="true"><line x1="2" y1="2" x2="8" y2="8"/><line x1="8" y1="2" x2="2" y2="8"/></svg></span>Afastamento social e queda no rendimento profissional</li>
-        </ul>
-      </div>
-      <div class="ps-sol rv d2">
-        <div class="ps-col-hd">
-          <span class="ps-col-ico" style="background:rgba(138,151,168,.16)"><svg viewBox="0 0 20 20" fill="none" stroke="var(--gold)" stroke-width="2" aria-hidden="true"><polyline points="4,10 8,14 16,6"/></svg></span>
-          <span class="ps-col-lbl" style="color:var(--gold)">Nossa resposta</span>
-        </div>
-        <ul class="ps-items">
-          <li class="ps-item" style="color:rgba(255,255,255,.65)"><span class="ps-item-ico" style="background:rgba(138,151,168,.1)"><svg viewBox="0 0 10 10" fill="none" stroke="var(--gold)" stroke-width="2" aria-hidden="true"><polyline points="2,5 4,8 8,2"/></svg></span>Autoconfiança restaurada com resultado 100% natural</li>
-          <li class="ps-item" style="color:rgba(255,255,255,.65)"><span class="ps-item-ico" style="background:rgba(138,151,168,.1)"><svg viewBox="0 0 10 10" fill="none" stroke="var(--gold)" stroke-width="2" aria-hidden="true"><polyline points="2,5 4,8 8,2"/></svg></span>Diagnóstico capilar completo para tratar a causa</li>
-          <li class="ps-item" style="color:rgba(255,255,255,.65)"><span class="ps-item-ico" style="background:rgba(138,151,168,.1)"><svg viewBox="0 0 10 10" fill="none" stroke="var(--gold)" stroke-width="2" aria-hidden="true"><polyline points="2,5 4,8 8,2"/></svg></span>Protocolo integrado: transplante + ortomolecular</li>
-          <li class="ps-item" style="color:rgba(255,255,255,.65)"><span class="ps-item-ico" style="background:rgba(138,151,168,.1)"><svg viewBox="0 0 10 10" fill="none" stroke="var(--gold)" stroke-width="2" aria-hidden="true"><polyline points="2,5 4,8 8,2"/></svg></span>Implante fio a fio com ângulo e direção naturais</li>
-          <li class="ps-item" style="color:rgba(255,255,255,.65)"><span class="ps-item-ico" style="background:rgba(138,151,168,.1)"><svg viewBox="0 0 10 10" fill="none" stroke="var(--gold)" stroke-width="2" aria-hidden="true"><polyline points="2,5 4,8 8,2"/></svg></span>Resultado permanente — os fios crescem para sempre</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MANIFESTO -->
-<section class="manifesto" aria-label="Nossa filosofia">
-  <div class="manifesto__inner rv">
-    <div class="manifesto__rule" aria-hidden="true"></div>
-    <p class="manifesto__q">"Recuperar o cabelo não é vaidade.<br>É recuperar <em>a autoridade</em> sobre a própria imagem."</p>
-    <span class="manifesto__attr">— Filosofia New Hair · Cruz Alta, RS</span>
-    <div class="manifesto__rule-b" aria-hidden="true"></div>
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
-<section class="svcs" id="servicos">
-  <div class="w">
-    <div class="svcs__hd">
-      <div class="rv">
-        <span class="ey">Serviços</span>
-        <h2 class="t2">Tratamentos <em>especializados</em></h2>
-      </div>
-      <a href="https://wa.me/5555992112028?text=Olá%2C+quero+saber+mais+sobre+os+serviços." class="bgh rv d1" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Consultar preços →</a>
-    </div>
-    <div class="svc-rows rv d1">
-      <div class="svc-row svc-row--feat">
-        <span class="svc-row__n">01</span>
-        <div>
-          <span class="svc-row__sub">Procedimento Principal</span>
-          <h3 class="svc-row__title">Transplante Capilar Fio a Fio <span style="font-style:italic;color:var(--gold-dk)">(FUE)</span></h3>
-          <p class="svc-row__body">Extração individual de folículos sem cicatriz linear. Implante com ângulo e direção do crescimento natural. Resultado permanente — retorno às atividades em 3 a 5 dias.</p>
-          <div class="svc-row__cta">
-            <a href="https://wa.me/5555992112028?text=Olá%2C+quero+saber+mais+sobre+o+transplante+capilar+fio+a+fio." class="bwa bwa-sm" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Agendar Avaliação</a>
-          </div>
-        </div>
-        <span class="svc-row__arr">→</span>
-      </div>
-      <div class="svc-row">
-        <span class="svc-row__n">02</span>
-        <div>
-          <h3 class="svc-row__title">Soroterapia Ortomolecular</h3>
-          <p class="svc-row__body">Vitaminas e minerais essenciais via intravenosa para nutrição profunda do couro cabeludo e aceleração do crescimento capilar.</p>
-        </div>
-        <span class="svc-row__arr">→</span>
-      </div>
-      <div class="svc-row">
-        <span class="svc-row__n">03</span>
-        <div>
-          <h3 class="svc-row__title">Tratamento de Queda Capilar</h3>
-          <p class="svc-row__body">Protocolo personalizado para identificar e tratar a causa raiz da queda, com acompanhamento clínico e ajuste contínuo.</p>
-        </div>
-        <span class="svc-row__arr">→</span>
-      </div>
-      <div class="svc-row">
-        <span class="svc-row__n">04</span>
-        <div>
-          <h3 class="svc-row__title">Suplementação Capilar</h3>
-          <p class="svc-row__body">Prescrição personalizada com base no perfil metabólico do paciente para fortalecer os fios de dentro para fora.</p>
-        </div>
-        <span class="svc-row__arr">→</span>
-      </div>
-      <div class="svc-row">
-        <span class="svc-row__n">05</span>
-        <div>
-          <h3 class="svc-row__title">Análise Capilar Completa</h3>
-          <p class="svc-row__body">Avaliação detalhada do couro cabeludo, densidade e padrão de queda para diagnóstico correto e plano ideal.</p>
-        </div>
-        <span class="svc-row__arr">→</span>
-      </div>
-      <div class="svc-row">
-        <span class="svc-row__n">06</span>
-        <div>
-          <h3 class="svc-row__title">Microagulhamento Capilar</h3>
-          <p class="svc-row__body">Técnica minimamente invasiva que estimula a regeneração folicular e potencializa a absorção de ativos terapêuticos.</p>
-        </div>
-        <span class="svc-row__arr">→</span>
-      </div>
-      <div class="svc-row">
-        <span class="svc-row__n">07</span>
-        <div>
-          <h3 class="svc-row__title">Pós-operatório Assistido</h3>
-          <p class="svc-row__body">Acompanhamento completo pós-transplante com revisão, suplementação ajustada e cuidados orientados.</p>
-        </div>
-        <span class="svc-row__arr">→</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIFERENCIAIS -->
-<section class="diffs">
-  <div class="w">
-    <div class="diffs__ed">
-      <div class="rv">
-        <span class="ey">Por que New Hair</span>
-        <p class="diffs__stmt-q">"A diferença não está no procedimento — está em <em>como cada detalhe é pensado</em> para você."</p>
-        <div class="diffs__stmt-line" aria-hidden="true"></div>
-        <p class="diffs__stmt-attr">Filosofia New Hair · Cruz Alta &amp; Encantado, RS</p>
-      </div>
-      <div class="diffs__rows rv d1">
-        <div class="diffs__row">
-          <span class="diffs__row-n">01</span>
-          <div>
-            <h3 class="diffs__row-title">Abordagem 360°</h3>
-            <p class="diffs__row-body">Transplante + soroterapia + suplementação em um único protocolo integrado. Tratamos a causa, não apenas o sintoma.</p>
-            <span class="diffs__row-tag">Protocolo Integrado</span>
-          </div>
-        </div>
-        <div class="diffs__row">
-          <span class="diffs__row-n">02</span>
-          <div>
-            <h3 class="diffs__row-title">Precisão Fio a Fio</h3>
-            <p class="diffs__row-body">Cada fio implantado no ângulo e direção natural. Nenhum detalhe ao acaso — o resultado parece que sempre foi assim.</p>
-            <span class="diffs__row-tag">Técnica Cirúrgica</span>
-          </div>
-        </div>
-        <div class="diffs__row">
-          <span class="diffs__row-n">03</span>
-          <div>
-            <h3 class="diffs__row-title">Diagnóstico Personalizado</h3>
-            <p class="diffs__row-body">Nenhum protocolo genérico. Seu perfil capilar, histórico e expectativas definem um plano único para você.</p>
-            <span class="diffs__row-tag">Avaliação Completa</span>
-          </div>
-        </div>
-        <div class="diffs__row">
-          <span class="diffs__row-n">04</span>
-          <div>
-            <h3 class="diffs__row-title">Referência Regional</h3>
-            <p class="diffs__row-body">Especialização capilar em Cruz Alta e Encantado — excelência sem precisar viajar para grandes centros.</p>
-            <span class="diffs__row-tag">Cruz Alta &amp; Encantado</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- TRANSFORMAÇÃO TIMELINE -->
 <section class="transform" id="resultados" aria-labelledby="transform-hd">
@@ -1579,7 +1512,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
     <div class="transform__hd rv">
       <span class="ey">Resultados reais</span>
       <h2 class="t2" id="transform-hd">Do procedimento<br><em>à transformação definitiva</em></h2>
-      <p class="lead" style="max-width:500px;margin:16px auto 0">Um protocolo que muda não só o cabelo — muda como você se vê e como o mundo te vê.</p>
+      <p class="lead" style="max-width:500px;margin:16px auto 0">Cada etapa do resultado, em detalhe.</p>
     </div>
     <div class="transform__tl rv d1">
       <div class="tl-track" aria-hidden="true">
@@ -1591,7 +1524,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
           <div class="tl-card">
             <span class="tl-time">Dia 1–7</span>
             <h3 class="tl-title">O processo começa</h3>
-            <p class="tl-body">Recuperação tranquila. Retorno às atividades em 3 a 5 dias. Os folículos integram ao couro cabeludo.</p>
+            <p class="tl-body">Retorno às atividades em 3 a 5 dias.</p>
           </div>
         </div>
         <div class="tl-item">
@@ -1599,7 +1532,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
           <div class="tl-card">
             <span class="tl-time">Mês 1–3</span>
             <h3 class="tl-title">Os fios respondem</h3>
-            <p class="tl-body">Primeiros fios crescendo. O protocolo ortomolecular acelera a nutrição folicular e fortalece os novos fios.</p>
+            <p class="tl-body">Primeiros fios surgindo. Protocolo ortomolecular em ação.</p>
           </div>
         </div>
         <div class="tl-item">
@@ -1607,7 +1540,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
           <div class="tl-card">
             <span class="tl-time">Mês 4–8</span>
             <h3 class="tl-title">A transformação surge</h3>
-            <p class="tl-body">Densidade visível. Você começa a notar a diferença no espelho — e as pessoas ao redor também notam.</p>
+            <p class="tl-body">Densidade visível. A diferença já aparece.</p>
           </div>
         </div>
         <div class="tl-item">
@@ -1615,30 +1548,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
           <div class="tl-card tl-card--final">
             <span class="tl-time">Mês 10–12</span>
             <h3 class="tl-title">Resultado definitivo</h3>
-            <p class="tl-body">Resultado completo e permanente. Você se reconhece no espelho. Os fios crescem para sempre — sem manutenção.</p>
+            <p class="tl-body">Resultado permanente. Sem manutenção.</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DR. DENILDO -->
-<section class="dr">
-  <div class="w">
-    <div class="dr__inner rv">
-      <div class="dr__img-wrap">
-        <img src="foto-dr.jpg" alt="Dr. Denildo Sobrinho realizando procedimento" class="dr__img" loading="lazy" decoding="async">
-      </div>
-      <div class="dr__txt">
-        <span class="ey">O especialista</span>
-        <h2 class="t2">Dr. Denildo<br>Sobrinho</h2>
-        <div class="dr__line"></div>
-        <p class="dr__bio">Médico especialista em transplante capilar fio a fio e medicina ortomolecular. Atende em Cruz Alta e Encantado, RS, com protocolo personalizado e acompanhamento contínuo do paciente.</p>
-        <div class="dr__creds">
-          <div class="dr__cred"><span class="dr__cred-n">FUE</span><span class="dr__cred-l">Técnica fio a fio</span></div>
-          <div class="dr__cred"><span class="dr__cred-n">CRM</span><span class="dr__cred-l">Registrado RS</span></div>
-          <div class="dr__cred"><span class="dr__cred-n">+7</span><span class="dr__cred-l">Anos de experiência</span></div>
         </div>
       </div>
     </div>
@@ -1657,7 +1568,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
       <div class="proc__col">
         <span class="proc__col-n">01</span>
         <h3 class="proc__col-title">Avaliação Capilar Personalizada</h3>
-        <p class="proc__col-body">Diagnóstico completo: perfil capilar, causa da queda, grau de calvície e expectativas. A base de tudo.</p>
+        <p class="proc__col-body">Perfil capilar, causa da queda, expectativas. A base de tudo.</p>
         <span class="proc__col-tag">Presencial</span>
       </div>
       <div class="proc__col">
@@ -1669,13 +1580,13 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
       <div class="proc__col">
         <span class="proc__col-n">03</span>
         <h3 class="proc__col-title">Procedimento com Precisão</h3>
-        <p class="proc__col-body">Execução cirúrgica fio a fio. Cada implante no ângulo e direção natural — resultado 100% natural.</p>
+        <p class="proc__col-body">Fio a fio. Cada implante no ângulo natural.</p>
         <span class="proc__col-tag">Cirúrgico</span>
       </div>
       <div class="proc__col">
         <span class="proc__col-n">04</span>
         <h3 class="proc__col-title">Acompanhamento Completo</h3>
-        <p class="proc__col-body">Suporte pós-procedimento, ajuste de suplementação e manutenção para resultados permanentes.</p>
+        <p class="proc__col-body">Suporte, suplementação ajustada e acompanhamento contínuo.</p>
         <span class="proc__col-tag">Pós-procedimento</span>
       </div>
     </div>
@@ -1704,7 +1615,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
     <div class="faq__hd rv">
       <span class="ey ey-dk">Perguntas frequentes</span>
       <h2 class="t2">Tire suas <em>dúvidas</em><br>antes de agendar</h2>
-      <p class="lead">Respondemos as principais objeções para que você decida com total segurança.</p>
+      <p class="lead">As dúvidas mais comuns — respondidas.</p>
     </div>
     <div class="faq__list rv d1">
       <div class="faq__item">
@@ -1712,42 +1623,42 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
           <span class="faq__q-txt">O transplante capilar é doloroso?</span>
           <span class="faq__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq__a"><div class="faq__a-inner">Não. O procedimento é realizado sob anestesia local — o desconforto é mínimo. A maioria dos pacientes fica relaxada durante todo o processo, e o pós-operatório também é tranquilo, sem dores intensas.</div></div>
+        <div class="faq__a"><div class="faq__a-inner">Não. Anestesia local — desconforto mínimo. Pós-operatório tranquilo, sem dores intensas.</div></div>
       </div>
       <div class="faq__item">
         <div class="faq__q" role="button" tabindex="0" aria-expanded="false">
           <span class="faq__q-txt">Quando aparecem os primeiros resultados?</span>
           <span class="faq__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq__a"><div class="faq__a-inner">Os primeiros fios começam a crescer entre 3 e 4 meses após o procedimento. O resultado completo se consolida entre 10 e 12 meses. Com o protocolo ortomolecular, esse processo pode ser potencializado.</div></div>
+        <div class="faq__a"><div class="faq__a-inner">Primeiros fios entre 3 e 4 meses. Resultado completo em 10 a 12 meses.</div></div>
       </div>
       <div class="faq__item">
         <div class="faq__q" role="button" tabindex="0" aria-expanded="false">
           <span class="faq__q-txt">Os fios implantados crescem para sempre?</span>
           <span class="faq__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq__a"><div class="faq__a-inner">Sim. Os folículos transplantados são geneticamente resistentes à calvície. Uma vez implantados, crescem como cabelo natural — permanentemente. Não há necessidade de reposição.</div></div>
+        <div class="faq__a"><div class="faq__a-inner">Sim. Folículos geneticamente resistentes à calvície — crescem para sempre.</div></div>
       </div>
       <div class="faq__item">
         <div class="faq__q" role="button" tabindex="0" aria-expanded="false">
           <span class="faq__q-txt">Preciso parar de trabalhar para fazer o procedimento?</span>
           <span class="faq__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq__a"><div class="faq__a-inner">Não. O procedimento é ambulatorial e a recuperação é rápida. Na maioria dos casos, o paciente retorna às atividades normais em 3 a 5 dias. Atividades físicas intensas devem ser evitadas por 2 semanas.</div></div>
+        <div class="faq__a"><div class="faq__a-inner">Não. Ambulatorial — retorno em 3 a 5 dias. Evitar atividade física intensa por 2 semanas.</div></div>
       </div>
       <div class="faq__item">
         <div class="faq__q" role="button" tabindex="0" aria-expanded="false">
           <span class="faq__q-txt">A soroterapia ortomolecular é necessária?</span>
           <span class="faq__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq__a"><div class="faq__a-inner">Não obrigatória, mas altamente recomendada. Potencializa os resultados do transplante e acelera a recuperação ao nutrir o couro cabeludo com vitaminas e minerais essenciais via intravenosa.</div></div>
+        <div class="faq__a"><div class="faq__a-inner">Não obrigatória, mas recomendada. Potencializa o transplante e acelera a recuperação.</div></div>
       </div>
       <div class="faq__item">
         <div class="faq__q" role="button" tabindex="0" aria-expanded="false">
           <span class="faq__q-txt">Como funciona a avaliação inicial?</span>
           <span class="faq__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq__a"><div class="faq__a-inner">A avaliação é presencial, completa e sem compromisso. Analisamos seu perfil capilar, grau de calvície e criamos o protocolo ideal para seu caso. Para novos pacientes, a primeira consulta tem 50% de desconto via voucher exclusivo.</div></div>
+        <div class="faq__a"><div class="faq__a-inner">Presencial, completa, sem compromisso. Análise do perfil capilar e protocolo personalizado. 50% OFF na primeira consulta.</div></div>
       </div>
     </div>
   </div>
@@ -1837,13 +1748,25 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
 /* ── NAV SOLID ─────────────────────────────────────── */
 const nav = document.getElementById('nav');
 const prog = document.getElementById('prog');
-const onScroll = () => {
+let _ticking = false;
+let _scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+
+const _update = () => {
   const sy = window.scrollY;
   nav.classList.toggle('solid', sy > 60);
-  prog.style.transform = `scaleX(${Math.min(sy / (document.documentElement.scrollHeight - window.innerHeight), 1)})`;
+  prog.style.transform = `scaleX(${Math.min(sy / _scrollMax, 1)})`;
+  _ticking = false;
 };
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
+
+window.addEventListener('scroll', () => {
+  if (!_ticking) { requestAnimationFrame(_update); _ticking = true; }
+}, { passive: true });
+
+window.addEventListener('resize', () => {
+  _scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+}, { passive: true });
+
+_update();
 
 /* ── ANCHOR SCROLL: offset para nav fixa ──────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -1889,6 +1812,63 @@ const tlFill = document.querySelector('.tl-track-fill');
 if (tlFill) {
   new IntersectionObserver(([e]) => { if (e.isIntersecting) tlFill.classList.add('on'); }, { threshold: 0.4 }).observe(tlFill);
 }
+
+/* ── BEFORE / AFTER SLIDERS ────────────────────────── */
+(function(){
+  document.querySelectorAll('[data-ba]').forEach(function(el){
+    var active = false;
+    var raf = null;
+
+    function setPos(clientX){
+      var rect = el.getBoundingClientRect();
+      var p = Math.max(4, Math.min(96, (clientX - rect.left) / rect.width * 100));
+      el.style.setProperty('--ba-p', p.toFixed(2) + '%');
+    }
+
+    el.addEventListener('mousedown', function(e){ active = true; el.classList.add('ba--active'); setPos(e.clientX); });
+    el.addEventListener('touchstart', function(e){ active = true; el.classList.add('ba--active'); setPos(e.touches[0].clientX); }, { passive: true });
+
+    window.addEventListener('mousemove', function(e){
+      if (!active) return;
+      if (raf) cancelAnimationFrame(raf);
+      var x = e.clientX;
+      raf = requestAnimationFrame(function(){ setPos(x); });
+    });
+    window.addEventListener('touchmove', function(e){
+      if (!active) return;
+      if (raf) cancelAnimationFrame(raf);
+      var x = e.touches[0].clientX;
+      raf = requestAnimationFrame(function(){ setPos(x); });
+    }, { passive: true });
+
+    window.addEventListener('mouseup',  function(){ active = false; el.classList.remove('ba--active'); });
+    window.addEventListener('touchend', function(){ active = false; el.classList.remove('ba--active'); });
+
+    /* Hint drag animation on first visible */
+    var hinted = false;
+    new IntersectionObserver(function(entries){
+      if (!entries[0].isIntersecting || hinted) return;
+      hinted = true;
+      var start = null;
+      var dur = 1600;
+      function hint(ts){
+        if (!start) start = ts;
+        var t = Math.min((ts - start) / dur, 1);
+        /* ease: cubic-bezier approx via smoothstep */
+        var e2 = t * t * (3 - 2 * t);
+        /* 50 → 28 → 72 → 50 */
+        var p = t < 0.35
+          ? 50 - 22 * (t / 0.35)
+          : t < 0.65
+          ? 28 + 44 * ((t - 0.35) / 0.30)
+          : 72 - 22 * ((t - 0.65) / 0.35);
+        el.style.setProperty('--ba-p', p.toFixed(2) + '%');
+        if (t < 1) requestAnimationFrame(hint);
+      }
+      setTimeout(function(){ requestAnimationFrame(hint); }, 500);
+    }, { threshold: 0.5 }).observe(el);
+  });
+})();
 
 /* ── FAQ ───────────────────────────────────────────── */
 document.querySelectorAll('.faq__item').forEach(item => {
