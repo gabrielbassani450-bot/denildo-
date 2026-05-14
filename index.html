@@ -22,7 +22,7 @@
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalBusiness","name":"New Hair Transplante Capilar","url":"https://newhair.com.br","description":"Clínica especializada em transplante capilar fio a fio e tratamentos ortomoleculares em Cruz Alta, RS","address":{"@type":"PostalAddress","streetAddress":"Rua Marechal Floriano Peixoto, 1293","addressLocality":"Cruz Alta","addressRegion":"RS","addressCountry":"BR"},"openingHours":"Mo-Sa 09:00-19:00","medicalSpecialty":"Dermatology","image":"https://newhair.com.br/logo-dark.png"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalBusiness","name":"New Hair Transplante Capilar","url":"https://newhair.com.br","description":"Clínica especializada em transplante capilar fio a fio e tratamentos ortomoleculares em Cruz Alta e Encantado, RS","address":[{"@type":"PostalAddress","streetAddress":"Rua Marechal Floriano Peixoto, 1293","addressLocality":"Cruz Alta","addressRegion":"RS","addressCountry":"BR"},{"@type":"PostalAddress","streetAddress":"Rua Monsenhor Scalabrini, 1109, Sala 01","addressLocality":"Encantado","addressRegion":"RS","addressCountry":"BR"}],"openingHours":"Mo-Sa 09:00-19:00","medicalSpecialty":"Dermatology","image":"https://newhair.com.br/logo-dark.png"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,500;0,600;1,200;1,300;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -114,9 +114,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 @keyframes badge-in     {from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
 
 /* ─── REVEAL SYSTEM ──────────────────────────── */
-.rv{opacity:0;transform:translateY(10px);will-change:transform,opacity;transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1)}
+.rv{opacity:0;transform:translateY(22px);will-change:transform,opacity;transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
 .rv.on{opacity:1;transform:none;will-change:auto}
-.d1{transition-delay:.09s}.d2{transition-delay:.19s}.d3{transition-delay:.29s}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.36s}
 .d4{transition-delay:.39s}.d5{transition-delay:.49s}.d6{transition-delay:.59s}
 
 /* ─── PROGRESS BAR ───────────────────────────── */
@@ -417,7 +417,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .proc__col-tag{margin-top:16px;display:inline-block;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(138,151,168,.4)}
 
 /* ─── LOC OPEN COLUMNS ───────────────────────── */
-.loc__open{display:grid;grid-template-columns:2fr 1fr 1fr;border-top:1px solid var(--g200)}
+.loc__open{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--g200)}
 .lc-open{padding:48px 40px;border-right:1px solid var(--g200);transition:background .3s var(--ease);text-decoration:none}
 .lc-open:last-child{border-right:none}
 .lc-open:hover{background:var(--g50)}
@@ -571,9 +571,10 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   .journey{padding:100px 0}
   .tl-grid{grid-template-columns:repeat(2,1fr)}
   .diffs__ed{grid-template-columns:1fr}
-  .loc__open{grid-template-columns:1fr 1fr}
-  .lc-open--maps{grid-column:1/-1;border-right:none;border-bottom:1px solid var(--g200)}
+  .loc__open{grid-template-columns:repeat(2,1fr)}
   .lc-open:nth-child(2){border-right:none}
+  .lc-open:nth-child(3){border-top:1px solid var(--g200)}
+  .lc-open:nth-child(4){border-top:1px solid var(--g200);border-right:none}
   .lc-open:nth-child(3){border-top:1px solid var(--g200);grid-column:1/-1;border-right:none}
   .trust__flow{flex-wrap:wrap}
   .trust__fstat{min-width:calc(50% - 1px);padding:28px 24px}
@@ -675,7 +676,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .lead-w{opacity:.44}
 
 /* — Reveal: no blur, 120hz-optimized — */
-.rv{filter:none;will-change:transform,opacity;transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1)}
+.rv{filter:none;will-change:transform,opacity;transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
 .rv.on{will-change:auto}
 
 /* — Section spacing: varied rhythm (no uniform 140px) — */
@@ -1002,7 +1003,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
 #prog{height:1px!important;background:linear-gradient(90deg,var(--warm-dk),var(--warm),var(--warm-lt),var(--warm))!important}
 
 /* ── REVEAL SYSTEM: cleaner ─────────────────────────── */
-.rv{transform:translateY(20px)!important}
+.rv{transform:translateY(22px)!important;transition-duration:.85s!important}
 .rv.on{transform:none!important}
 
 /* ── SECTION SEPARATORS ───────────────────────────────
@@ -1691,11 +1692,21 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
       <h2 class="t2 t2-sm">Atendimento em <em>Cruz Alta e Encantado</em></h2>
     </div>
     <div class="loc__open rv d1">
-      <a class="lc-open lc-open--maps" href="https://maps.google.com/?q=Rua+Marechal+Floriano+Peixoto,+1293,+Centro,+Cruz+Alta,+RS" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Ver endereço no Google Maps">
+      <a class="lc-open lc-open--maps" href="https://maps.google.com/?q=Rua+Marechal+Floriano+Peixoto,+1293,+Centro,+Cruz+Alta,+RS" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Ver endereço Cruz Alta no Google Maps">
         <svg class="lc-open__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span class="lc-open__lbl">Endereço</span>
+        <span class="lc-open__lbl">Cruz Alta</span>
         <span class="lc-open__val">Rua Marechal Floriano Peixoto, 1293</span>
         <span class="lc-open__sub">Centro · Cruz Alta, RS</span>
+        <span class="lc-open--maps__cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Ver no Google Maps
+        </span>
+      </a>
+      <a class="lc-open lc-open--maps" href="https://maps.google.com/?q=Rua+Monsenhor+Scalabrini,+1109,+Centro,+Encantado,+RS" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Ver endereço Encantado no Google Maps">
+        <svg class="lc-open__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="lc-open__lbl">Encantado</span>
+        <span class="lc-open__val">Rua Monsenhor Scalabrini, 1109</span>
+        <span class="lc-open__sub">Sala 01 · Centro · Encantado, RS</span>
         <span class="lc-open--maps__cta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Ver no Google Maps
@@ -1731,7 +1742,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9996;pointer-events:none;
     </div>
     <p class="ft__copy">
       &copy; 2026 New Hair Transplante Capilar &middot; Dr. Denildo Sobrinho<br>
-      Rua Marechal Floriano Peixoto, 1293, Centro, Cruz Alta, RS &nbsp;&middot;&nbsp; 09:00–19:00<br>
+      Cruz Alta: Rua Marechal Floriano Peixoto, 1293 &nbsp;&middot;&nbsp; Encantado: Rua Monsenhor Scalabrini, 1109 Sala 01 &nbsp;&middot;&nbsp; 09:00–19:00<br>
       Desenvolvido por <a href="https://silencode.com.br/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" style="color:inherit;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:1px;transition:border-color .25s" onmouseover="this.style.borderColor='rgba(197,165,90,.6)'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)'">Silencode</a>
     </p>
   </div>
@@ -1786,7 +1797,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 /* ── REVEAL ON SCROLL ──────────────────────────────── */
 const io = new IntersectionObserver(
   entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }),
-  { threshold: 0.07, rootMargin: '0px 0px -32px 0px' }
+  { threshold: 0.05, rootMargin: '0px 0px 20px 0px' }
 );
 document.querySelectorAll('.rv, .journey__item').forEach(el => io.observe(el));
 
