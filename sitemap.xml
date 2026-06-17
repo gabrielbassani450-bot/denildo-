@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://newhair.com.br/</loc>
+    <loc>https://drdenildo.com.br/</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://newhair.com.br/og-denildo.png</image:loc>
+      <image:loc>https://drdenildo.com.br/og-denildo.png</image:loc>
       <image:title>Dr. Denildo Sobrinho — Transplante Capilar</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://newhair.com.br/foto-dr.jpg</image:loc>
+      <image:loc>https://drdenildo.com.br/foto-dr.jpg</image:loc>
       <image:title>Dr. Denildo Sobrinho — Especialista em Transplante Capilar</image:title>
     </image:image>
   </url>
