@@ -132,7 +132,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;color:inhe
 .nav__lk:hover::after{width:100%}
 
 /* ═══ HERO ════════════════════════════════════════ */
-.hero{position:relative;min-height:clamp(640px,88vh,820px);display:flex;align-items:stretch;background:var(--navy);overflow:hidden;isolation:isolate}
+.hero{position:relative;min-height:clamp(660px,94vh,1080px);display:flex;align-items:stretch;background:var(--navy);overflow:hidden;isolation:isolate}
 .hero__glow{position:absolute;top:-15%;right:-5%;width:48vw;height:60vh;background:radial-gradient(ellipse at center,rgba(192,169,106,.05) 0%,transparent 62%);pointer-events:none;z-index:0}
 .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;gap:0;position:relative;z-index:2;width:100%;min-height:inherit}
 .hero__body{padding:132px 0 72px;display:flex;flex-direction:column;justify-content:center}
@@ -414,9 +414,13 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
 .qz__send svg{width:17px;height:17px}
 
 /* ═══ RESPONSIVE ══════════════════════════════════ */
-@media(min-width:1180px){
-  .hero__fig{margin-right:clamp(-320px,calc((100vw - 1116px)/-2),0px)}
+@media(min-width:961px){
+  .hero__grid{position:static}
   .hero__body{position:relative;z-index:3}
+  .hero__fig{position:absolute;top:0;bottom:0;left:calc(32px + (100vw - 64px)*.525);right:0}
+}
+@media(min-width:1180px){
+  .hero__fig{left:calc((100vw - 1180px)/2 + 618px)}
   .hero__h1{margin-right:-140px;text-shadow:0 2px 30px rgba(11,17,32,.45)}
 }
 @media(max-width:1080px){
