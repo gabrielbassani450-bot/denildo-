@@ -132,7 +132,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;color:inhe
 .nav__lk:hover::after{width:100%}
 
 /* ═══ HERO ════════════════════════════════════════ */
-.hero{position:relative;min-height:clamp(600px,82vh,780px);display:flex;align-items:stretch;background:var(--navy);overflow:hidden;isolation:isolate}
+.hero{position:relative;min-height:clamp(640px,88vh,820px);display:flex;align-items:stretch;background:var(--navy);overflow:hidden;isolation:isolate}
 .hero__glow{position:absolute;top:-15%;right:-5%;width:48vw;height:60vh;background:radial-gradient(ellipse at center,rgba(192,169,106,.05) 0%,transparent 62%);pointer-events:none;z-index:0}
 .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;gap:0;position:relative;z-index:2;width:100%;min-height:inherit}
 .hero__body{padding:132px 0 72px;display:flex;flex-direction:column;justify-content:center}
@@ -415,7 +415,7 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
 
 /* ═══ RESPONSIVE ══════════════════════════════════ */
 @media(min-width:1180px){
-  .hero__fig{margin-left:-200px;margin-right:clamp(-320px,calc((100vw - 1116px)/-2),0px)}
+  .hero__fig{margin-right:clamp(-320px,calc((100vw - 1116px)/-2),0px)}
   .hero__body{position:relative;z-index:3}
   .hero__h1{margin-right:-140px;text-shadow:0 2px 30px rgba(11,17,32,.45)}
 }
@@ -427,7 +427,7 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   .sec{padding:76px 0}
   .hero__grid{grid-template-columns:1fr;gap:0}
   .hero{min-height:auto}
-  .hero__fig{order:-1;height:min(58svh,500px);min-height:380px;margin:0 -32px}
+  .hero__fig{order:-1;height:min(64svh,560px);min-height:400px;margin:0 -32px}
   .hero__fig img{object-position:center top}
   .hero__fig::before{background:linear-gradient(180deg,rgba(11,17,32,.35) 0%,rgba(11,17,32,0) 26%,rgba(11,17,32,0) 46%,rgba(11,17,32,.55) 68%,rgba(11,17,32,.92) 88%,var(--navy) 100%)}
   .hero__body{padding:0 0 64px;margin-top:-118px;position:relative;z-index:2}
@@ -464,7 +464,7 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   .bwa-sm svg{width:14px;height:14px}
   .bgold{padding:12px 24px;font-size:13.5px}
   .hero__ey{font-size:9.5px;letter-spacing:.15em}
-  .hero__fig{margin:0 -22px;height:min(54svh,460px);min-height:340px}
+  .hero__fig{margin:0 -22px;height:min(60svh,520px);min-height:380px}
   .hero__body{margin-top:-104px}
   .hero__actions{flex-direction:column;align-items:stretch;margin-top:26px}
   .hero__actions .bwa,.hero__actions .bgh{justify-content:center}
