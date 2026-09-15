@@ -212,30 +212,28 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;color:inhe
 .ba__desc{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:500;color:#fff;letter-spacing:-.01em}
 .ba__note{font-size:15px;line-height:1.68;color:var(--g500);font-weight:300}
 
-/* ═══ DR / PLANEJAMENTO ═══════════════════════════ */
-.dr{background:var(--navy-d);position:relative;overflow:hidden}
-.dr__grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:64px;align-items:center}
-.dr__fig{position:relative;max-width:460px}
-.dr__fig-frame{position:relative;border-radius:var(--rx);overflow:hidden;aspect-ratio:4/4.7}
-.dr__fig-frame img{width:100%;height:100%;object-fit:cover;object-position:center 12%;filter:saturate(.92);transition:transform 1.2s var(--ease)}
-.dr__fig:hover .dr__fig-frame img{transform:scale(1.035)}
-.dr__fig-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,rgba(11,17,32,0) 55%,rgba(11,17,32,.55) 100%)}
-.dr__fig::before{content:'';position:absolute;inset:-12px auto auto -12px;width:90px;height:90px;border-top:1px solid rgba(192,169,106,.28);border-left:1px solid rgba(192,169,106,.28);border-radius:var(--rl) 0 0 0;pointer-events:none}
-.dr__fig::after{content:'';position:absolute;inset:auto -12px -12px auto;width:90px;height:90px;border-bottom:1px solid rgba(192,169,106,.28);border-right:1px solid rgba(192,169,106,.28);border-radius:0 0 var(--rl) 0;pointer-events:none}
-.dr__sig{position:absolute;left:22px;bottom:20px;z-index:2}
-.dr__sig-n{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#fff}
-.dr__sig-c{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:2px}
-.dr__bio{margin-top:20px;font-size:15.5px;line-height:1.75;color:var(--g500);font-weight:300;max-width:480px}
-.dr__pts{display:flex;flex-direction:column;gap:0;margin-top:30px;max-width:490px}
-.dr__pt{display:flex;gap:16px;padding:17px 0;border-top:1px solid var(--g200)}
-.dr__pt:last-child{border-bottom:1px solid var(--g200)}
-.dr__pt-ico{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(192,169,106,.24);background:rgba(192,169,106,.05);color:var(--gold);flex-shrink:0}
-.dr__pt-ico svg{width:17px;height:17px}
-.dr__pt-t{font-size:15px;font-weight:600;color:#fff;letter-spacing:.01em}
-.dr__pt-d{font-size:13.5px;line-height:1.6;color:var(--g700);font-weight:300;margin-top:3px}
-.dr__creds{display:flex;gap:34px;margin-top:30px}
-.dr__cred-n{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;color:var(--gold-lt);display:block}
-.dr__cred-l{font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--g700);margin-top:3px;display:block}
+/* ═══ DR / POR QUE ESTE ACOMPANHAMENTO ════════════ */
+.drx{background:var(--navy-d);position:relative;overflow:hidden}
+.drx__bg{position:absolute;inset:0;background:url(dr-fundo-1600.webp) center 30%/cover no-repeat;opacity:.14;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 45%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 45%,#000,transparent 75%);pointer-events:none}
+.drx__in{position:relative;z-index:2}
+.drx__grid{display:grid;grid-template-columns:1fr minmax(380px,460px) 1fr;gap:40px;align-items:center}
+.drx__col{display:flex;flex-direction:column;justify-content:center;gap:34px}
+.drx__pt{display:flex;gap:16px;align-items:flex-start}
+.drx__col--l .drx__pt{flex-direction:row-reverse;text-align:right}
+.drx__pt-ico{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(192,169,106,.42);background:rgba(192,169,106,.07);color:var(--gold);flex-shrink:0}
+.drx__pt-ico svg{width:22px;height:22px}
+.drx__pt-t{font-size:15.5px;font-weight:600;color:#fff;letter-spacing:.01em;line-height:1.3}
+.drx__pt-d{font-size:13px;line-height:1.58;color:var(--g700);font-weight:300;margin-top:4px}
+.drx__figwrap{position:relative}
+.drx__fig{position:relative;border-radius:28px 28px 12px 28px;overflow:hidden;aspect-ratio:4/4.6;border:1px solid rgba(192,169,106,.3);box-shadow:var(--sh-lg);background:var(--navy-m)}
+.drx__fig img{width:100%;height:100%;object-fit:cover;object-position:32% center;filter:saturate(.94)}
+.drx__fig::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,rgba(11,17,32,0) 48%,rgba(8,13,24,.62) 100%)}
+.drx__cap{position:absolute;left:22px;bottom:18px;z-index:2}
+.drx__cap-n{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:#fff}
+.drx__cap-c{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.drx__mini{position:absolute;right:-26px;bottom:-30px;width:175px;z-index:3;border-radius:var(--rx);overflow:hidden;border:1px solid rgba(192,169,106,.35);box-shadow:var(--sh-lg);background:var(--navy-m)}
+.drx__mini img{width:100%;display:block}
+.drx__mini-l{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);white-space:nowrap;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:var(--rf);background:rgba(8,13,24,.68);color:var(--g500);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 
 /* ═══ NORWOOD LEVELS ══════════════════════════════ */
 .nw{background:var(--navy);position:relative}
@@ -273,31 +271,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;color:inhe
 .cmp__foot{text-align:center;margin-top:30px;font-size:14px;color:var(--g500);font-weight:300}
 .cmp__foot em{color:var(--gold-lt);font-style:italic}
 
-/* ═══ CREDENCIAIS DO DR. ══════════════════════════ */
-.cred{background:radial-gradient(110% 100% at 50% 0%,rgba(192,169,106,.08) 0%,transparent 58%),var(--navy-d);padding:0 0 96px}
-.cred__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.cred__col{padding:32px 30px;background:rgba(17,30,53,.5);border:1px solid rgba(192,169,106,.2);border-radius:var(--rx);position:relative;overflow:hidden;transition:border-color var(--t),transform var(--t)}
-.cred__col:hover{border-color:rgba(192,169,106,.38);transform:translateY(-3px)}
-.cred__col::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,191,138,.55),transparent 72%)}
-.cred__tag{background:rgba(192,169,106,.08);color:var(--gold-lt);border:1px solid rgba(192,169,106,.3)}
-.cred__it svg{color:var(--gold)}
-
-/* ═══ SERVICES (carrossel) ════════════════════════ */
-.svcs{background:var(--navy)}
-.svcs__hd{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:44px}
-.svcs__nav{display:flex;gap:8px;flex-shrink:0}
-.svc-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 4px 10px;margin:0 -4px}
-.svc-track::-webkit-scrollbar{display:none}
-.svc-card{flex:0 0 min(300px,78%);scroll-snap-align:start;display:flex;flex-direction:column;padding:28px 26px 26px;background:rgba(17,30,53,.55);border:1px solid var(--g200);border-radius:var(--rx);transition:border-color var(--t),transform var(--t),box-shadow var(--t)}
-.svc-card:hover{border-color:rgba(192,169,106,.35);transform:translateY(-4px);box-shadow:var(--sh)}
-.svc-card--feat{background:linear-gradient(160deg,#15233E 0%,var(--g100) 100%);border-color:rgba(192,169,106,.32)}
-.svc-card__ico{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(192,169,106,.26);background:rgba(192,169,106,.06);color:var(--gold);margin-bottom:18px;flex-shrink:0}
-.svc-card__ico svg{width:20px;height:20px}
-.svc-card__title{font-family:'Cormorant Garamond',serif;font-size:21.5px;font-weight:600;color:#fff;letter-spacing:-.01em;line-height:1.15}
-.svc-card__body{font-size:13.5px;line-height:1.62;color:var(--g700);font-weight:300;margin-top:8px}
-.svc-card__cta{margin-top:auto;padding-top:18px}
-.svcs__dots{display:flex;justify-content:center;gap:9px;margin-top:24px}
-
 /* ═══ PROCESS ═════════════════════════════════════ */
 .proc{background:var(--navy-d);position:relative;overflow:hidden}
 .proc__steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;counter-reset:step}
@@ -328,14 +301,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;color:inhe
 .tl2__it:nth-child(2) .tl2__bar span{transition-delay:.32s}
 .tl2__it:nth-child(3) .tl2__bar span{transition-delay:.49s}
 .tl2__it:nth-child(4) .tl2__bar span{transition-delay:.66s}
-
-/* ═══ TRUST STRIP ═════════════════════════════════ */
-.trust{background:var(--navy);padding:0 0 96px}
-.trust__row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--g200);border-radius:var(--rx);overflow:hidden}
-.trust__cell{padding:28px 20px;text-align:center;border-left:1px solid var(--g200);background:rgba(17,30,53,.35)}
-.trust__cell:first-child{border-left:none}
-.trust__val{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;color:var(--gold-lt);letter-spacing:-.01em}
-.trust__lbl{font-size:10.5px;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--g700);margin-top:7px}
 
 /* ═══ FAQ ═════════════════════════════════════════ */
 .faq{background:var(--navy-d)}
@@ -452,32 +417,6 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
 .qz__send svg{width:17px;height:17px}
 
 /* ═══ NOVAS SEÇÕES ════════════════════════════════ */
-/* proof - headline de prova (acima dos resultados) */
-.proof{background:var(--navy);padding:72px 0 0;text-align:center;position:relative}
-.proof::before{content:'';position:absolute;top:0;left:0;right:0;height:100%;background:radial-gradient(90% 100% at 50% 0%,rgba(192,169,106,.06) 0%,transparent 60%);pointer-events:none}
-.proof>.wm{position:relative;z-index:1}
-.proof__h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,2.8vw,2.6rem);font-weight:400;line-height:1.18;letter-spacing:-.016em;color:#fff;max-width:780px;margin:0 auto}
-.proof__h em{font-style:italic;color:var(--gold-lt)}
-.proof__sub{margin:16px auto 0;max-width:600px;font-size:15px;line-height:1.72;color:var(--g700);font-weight:300}
-
-/* stats - autoridade em números reais */
-.stats{background:linear-gradient(180deg,var(--navy-d) 0%,var(--navy) 100%);padding:0 0 88px}
-.stats__row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.stat{padding:32px 22px;text-align:center;background:rgba(17,30,53,.5);border:1px solid var(--g200);border-radius:var(--rx);transition:border-color var(--t),transform var(--t)}
-.stat:hover{border-color:rgba(192,169,106,.32);transform:translateY(-3px)}
-.stat__n{font-family:'Cormorant Garamond',serif;font-size:41px;font-weight:600;color:var(--gold-lt);letter-spacing:-.02em;line-height:1}
-.stat__l{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g700);margin-top:11px;line-height:1.5}
-
-/* hlx - 3 cards de serviços (abaixo do Sobre) */
-.hlx{background:var(--navy-d);padding:0 0 96px}
-.hlx__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.hlx-card{display:flex;flex-direction:column;padding:30px 28px;background:rgba(17,30,53,.5);border:1px solid var(--g200);border-radius:var(--rx);transition:border-color var(--t),transform var(--t),box-shadow var(--t)}
-.hlx-card:hover{border-color:rgba(192,169,106,.35);transform:translateY(-4px);box-shadow:var(--sh)}
-.hlx-card__ico{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(192,169,106,.26);background:rgba(192,169,106,.06);color:var(--gold);margin-bottom:16px}
-.hlx-card__ico svg{width:19px;height:19px}
-.hlx-card__t{font-family:'Cormorant Garamond',serif;font-size:20.5px;font-weight:600;color:#fff;letter-spacing:-.01em}
-.hlx-card__d{font-size:13.5px;line-height:1.62;color:var(--g700);font-weight:300;margin-top:7px}
-
 /* cost - o custo real de não tratar */
 .cost{background:var(--navy);position:relative}
 .cost::before{content:'';position:absolute;inset:0;background:radial-gradient(100% 85% at 50% 100%,rgba(192,169,106,.06) 0%,transparent 55%);pointer-events:none}
@@ -553,14 +492,16 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
 .gal{background:var(--navy-d);position:relative}
 .gal::before{content:'';position:absolute;inset:0;background:radial-gradient(100% 85% at 50% 100%,rgba(192,169,106,.065) 0%,transparent 55%);pointer-events:none}
 .gal>.w{position:relative;z-index:1}
-.gal__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:920px;margin:0 auto}
-.gal__it{position:relative;border-radius:var(--rx);overflow:hidden;border:1px solid var(--g200);background:var(--g100);transition:border-color var(--t),box-shadow var(--t)}
-.gal__it:hover{border-color:rgba(192,169,106,.3);box-shadow:var(--sh)}
-.gal__pair{display:grid;grid-template-columns:1fr 1fr;position:relative}
-.gal__pair img{width:100%;height:100%;object-fit:cover;object-position:center 20%;aspect-ratio:3/4}
-.gal__badge{position:absolute;top:12px;left:12px;font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:5px 11px;border-radius:var(--rf);background:rgba(8,13,24,.62);color:var(--g500);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:2}
-.gal__badge--a{left:auto;right:12px;background:rgba(192,169,106,.78);color:var(--navy-d);border-color:rgba(212,191,138,.45)}
-.gal__cap{padding:14px 18px;font-size:12.5px;color:var(--g700);font-weight:300;border-top:1px solid var(--g200)}
+.gal__hd{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;max-width:none}
+.gal__hd>div:first-child{max-width:600px}
+.gal__nav{display:flex;gap:8px;flex-shrink:0}
+.gal .car__slide{flex-basis:min(440px,86%)}
+.gal__pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gal__ph{position:relative;overflow:hidden;border-radius:var(--rl);background:var(--navy-m)}
+.gal__ph img{width:100%;height:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 20%;display:block}
+.gal__badge{position:absolute;top:10px;left:10px;font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:5px 11px;border-radius:var(--rf);background:rgba(8,13,24,.62);color:var(--g500);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:2}
+.gal__badge--a{left:auto;right:10px;background:rgba(192,169,106,.78);color:var(--navy-d);border-color:rgba(212,191,138,.45)}
+.gal__cap{margin:12px 2px 0;font-size:12.5px;color:var(--g700);font-weight:300}
 
 /* sticky CTA (mobile) */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:996;display:none;transform:translateY(115%);transition:transform .45s var(--eout)}
@@ -572,6 +513,72 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
 .sticky__btn svg{width:14px;height:14px}
 .sticky__x{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;color:var(--g700);flex-shrink:0}
 .sticky__x svg{width:13px;height:13px}
+
+/* ═══ EVOLUÇÃO NO SCROLL (mgrow) ══════════════════ */
+.mgrow{position:relative;min-height:210vh;background:radial-gradient(circle at 50% 42%,rgba(192,169,106,.07),transparent 30%),var(--navy-d)}
+.mgrow__sticky{position:sticky;top:0;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:96px 32px 44px}
+.mgrow__wrap{width:min(1120px,100%);margin:auto;text-align:center;position:relative;z-index:2}
+.mgrow__h{max-width:880px;margin:0 auto;font-size:clamp(2.1rem,4vw,3.5rem);line-height:1.06}
+.mgrow__sub{max-width:720px;margin:18px auto 0;font-size:15.5px;line-height:1.7;color:var(--g500);font-weight:300}
+.mgrow__stage{position:relative;width:300px;height:390px;margin:30px auto 0}
+.mgrow__glow{position:absolute;left:50%;top:45%;width:300px;height:300px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(192,169,106,.13),transparent 68%);filter:blur(18px)}
+.mgrow__photo{position:relative;width:270px;height:360px;margin:auto;overflow:hidden;border-radius:28px 28px 16px 28px;border:1px solid rgba(192,169,106,.25);background:var(--navy-m);box-shadow:0 28px 70px rgba(0,0,0,.3)}
+.mgrow__base,.mgrow__hair{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 16%}
+.mgrow__base{z-index:1}
+.mgrow__hair{z-index:2;opacity:0;transition:opacity .08s linear;-webkit-mask-image:radial-gradient(ellipse 42% 22% at 50% 19%,#000 0%,#000 66%,transparent 100%);mask-image:radial-gradient(ellipse 42% 22% at 50% 19%,#000 0%,#000 66%,transparent 100%)}
+.mgrow__photo::after{content:'';position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(180deg,rgba(8,13,24,.01) 48%,rgba(8,13,24,.45) 100%)}
+.mgrow__badge{position:absolute;z-index:7;left:50%;bottom:14px;transform:translateX(-50%);min-width:200px;padding:10px 13px;border-radius:var(--rf);border:1px solid rgba(192,169,106,.3);background:rgba(4,9,17,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--g700);white-space:nowrap}
+.mgrow__badge strong{color:var(--gold)}
+.mgrow__dots{position:absolute;right:-2px;top:45%;display:grid;gap:11px}
+.mgrow__dot{width:9px;height:9px;border-radius:50%;border:1px solid rgba(192,169,106,.65);position:relative}
+.mgrow__dot::after{content:'';position:absolute;inset:2px;border-radius:50%;background:var(--gold);transform:scale(0);transition:.2s}
+.mgrow__dot.on::after{transform:scale(1)}
+.mgrow__hint{margin-top:10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--g700)}
+
+/* ═══ SERVIÇOS (grid) ═════════════════════════════ */
+.svcg{background:var(--navy);position:relative}
+.svcg__grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.svcg__card{grid-column:span 2;display:flex;flex-direction:column;background:var(--g100);border:1px solid var(--g200);border-radius:var(--rx);overflow:hidden;transition:border-color var(--t),transform var(--t),box-shadow var(--t)}
+.svcg__card:nth-child(4){grid-column:2/span 2}
+.svcg__card:nth-child(5){grid-column:4/span 2}
+.svcg__card:hover{border-color:rgba(192,169,106,.38);transform:translateY(-4px);box-shadow:var(--sh-md)}
+.svcg__img{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--navy-m)}
+.svcg__img img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .6s var(--eout)}
+.svcg__img--tri img{object-position:center 30%}
+.svcg__card:hover .svcg__img img{transform:scale(1.05)}
+.svcg__img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(8,13,24,.35));pointer-events:none}
+.svcg__body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+.svcg__label{color:var(--gold);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
+.svcg__t{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--white);letter-spacing:-.01em;line-height:1.1}
+.svcg__d{font-size:13.5px;line-height:1.55;color:var(--g700);font-weight:300;margin:10px 0 0;min-height:63px}
+.svcg__cta{display:inline-flex;align-items:center;gap:8px;width:max-content;margin-top:14px;padding:10px 16px;border-radius:var(--rf);background:linear-gradient(135deg,var(--gold-lt),var(--gold));color:#081020;text-decoration:none;font-size:11.5px;font-weight:800;transition:transform .25s var(--ease),filter .25s var(--ease)}
+.svcg__cta:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.svcg__cta svg{width:13px;height:13px}
+
+/* ═══ TÉCNICA FUE ═════════════════════════════════ */
+.fue{background:var(--navy);position:relative}
+.fue::before{content:'';position:absolute;inset:0;background:radial-gradient(90% 70% at 80% 10%,rgba(192,169,106,.06) 0%,transparent 55%);pointer-events:none}
+.fue>.w{position:relative;z-index:1}
+.fue__grid{display:grid;grid-template-columns:minmax(300px,360px) minmax(420px,1fr) minmax(260px,310px);gap:28px;align-items:start}
+.fue__visual{position:relative;overflow:hidden;border-radius:var(--rx);background:var(--navy-m);min-height:520px;box-shadow:var(--sh-lg)}
+.fue__visual img{width:100%;height:100%;position:absolute;inset:0;display:block;object-fit:cover;object-position:center 30%;filter:saturate(.95)}
+.fue__visual::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,24,.05),rgba(8,13,24,.3)),radial-gradient(circle at 76% 18%,rgba(192,169,106,.14),transparent 30%);pointer-events:none}
+.fue__content{display:grid;gap:16px;align-content:start}
+.fue__headline{position:relative;margin:0;padding-bottom:14px;font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.12;font-weight:600;color:var(--g900);letter-spacing:-.01em}
+.fue__headline::after{content:'';position:absolute;left:0;bottom:0;width:112px;height:2px;background:linear-gradient(90deg,var(--gold),rgba(192,169,106,.15));transform-origin:left center;transform:scaleX(0);transition:transform .9s var(--eout) .35s}
+.fue__headline.on::after{transform:scaleX(1)}
+.fue__content p{margin:0;font-size:14.5px;line-height:1.65;color:var(--g500);font-weight:300}
+.fue__content p strong{color:var(--g900);font-weight:600}
+.fue__hl{padding:14px 14px 14px 16px;border-left:3px solid var(--gold);border-radius:0 var(--r) var(--r) 0;background:var(--g100);font-size:14px;line-height:1.62;color:var(--g500);font-weight:300}
+.fue__hl strong{color:var(--g900);font-weight:600}
+.fue__steps{display:grid;gap:10px;padding:12px;border:1px solid var(--g200);border-radius:var(--rx);background:var(--g100)}
+.fue__step{display:grid;grid-template-columns:46px 1fr;gap:12px;align-items:center;padding:10px;border-radius:var(--rl);background:var(--navy-m);transition:background var(--t)}
+.fue__step:hover{background:var(--g200)}
+.fue__step-ico{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(192,169,106,.42);background:rgba(192,169,106,.08);color:var(--gold)}
+.fue__step-ico svg{width:20px;height:20px}
+.fue__step small{display:block;color:var(--gold);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.fue__step h4{margin:0 0 4px;font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.1;font-weight:600;color:var(--g900)}
+.fue__step p{margin:0;color:var(--g700);font-size:12px;line-height:1.45;font-weight:300}
 
 /* ═══ RESPONSIVE ══════════════════════════════════ */
 @media(min-width:961px){
@@ -586,7 +593,7 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
 }
 @media(max-width:1080px){
   .nw__grid{grid-template-columns:repeat(4,1fr);gap:14px}
-  .dr__grid{gap:52px}
+  .drx__grid{gap:28px}
 }
 @media(max-width:960px){
   .sec{padding:76px 0}
@@ -599,13 +606,16 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   .hero__fig::before{background:linear-gradient(180deg,rgba(11,17,32,.35) 0%,rgba(11,17,32,0) 26%,rgba(11,17,32,0) 46%,rgba(11,17,32,.55) 68%,rgba(11,17,32,.92) 88%,var(--navy) 100%)}
   .hero__body{padding:0 0 64px;margin-top:-118px;position:relative;z-index:2}
   .hero__h1{text-shadow:0 2px 26px rgba(11,17,32,.6)}
-  .dr__grid{grid-template-columns:1fr;gap:48px}
-  .dr__fig{max-width:520px}
+  .drx__grid{grid-template-columns:1fr;gap:40px}
+  .drx__figwrap{order:-1;width:100%;max-width:460px;margin:0 auto 34px}
+  .drx__col{gap:24px}
+  .drx__col--l .drx__pt{flex-direction:row;text-align:left}
   .proc__steps{grid-template-columns:1fr 1fr;gap:44px 24px}
   .proc__track{display:none}
   .proc__dot{box-shadow:none}
-  .stats__row{grid-template-columns:repeat(2,1fr)}
-  .hlx__grid{grid-template-columns:1fr}
+  .fue__grid{grid-template-columns:1fr;gap:18px}
+  .fue__visual{min-height:220px;max-height:260px}
+  .gal__hd{flex-direction:column;align-items:flex-start}
   .urge__grid{grid-template-columns:1fr}
   .urge__d{max-width:none}
   .quem__grid{grid-template-columns:1fr;gap:44px}
@@ -613,13 +623,8 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   .depo__fig{order:-1}
   .faq__grid{grid-template-columns:1fr;gap:40px}
   .nw__grid{grid-template-columns:repeat(4,1fr)}
-  .trust__row{grid-template-columns:1fr 1fr}
-  .trust__cell{border-top:1px solid var(--g200)}
-  .trust__cell:nth-child(-n+2){border-top:none}
-  .trust__cell:nth-child(odd){border-left:none}
   .loc__grid{grid-template-columns:1fr 1fr}
   .cmp__grid{grid-template-columns:1fr}
-  .cred__grid{grid-template-columns:1fr}
   .results__hd{flex-direction:column;align-items:flex-start}
   .qz__grid{grid-template-columns:repeat(3,1fr)}
 }
@@ -646,22 +651,38 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   .car__slide{flex-basis:88%}
   .results__nav{display:none}
   .ba__note{font-size:14px;line-height:1.65}
-  .svc-card{flex-basis:84%}
-  .svc-card__body{font-size:14px;line-height:1.65}
-  .svcs__nav{display:none}
-  .svcs__hd{flex-direction:column;align-items:flex-start;gap:18px}
+  .gal .car__slide{flex-basis:88%}
+  .gal__nav{display:none}
   .hero__strip-row{grid-template-columns:1fr;gap:11px;padding:22px 0 0}
   .hero__strip{padding-bottom:48px}
   .hero__strip-ico{width:34px;height:34px}
   .hero__strip-ico svg{width:15px;height:15px}
-  .stat{padding:24px 16px}
-  .stat__n{font-size:33px}
   .cost__c{padding:13px 13px;font-size:12.5px;gap:7px}
   .cost__row--h .cost__c{padding:12px 13px;font-size:9.5px;letter-spacing:.09em}
   .cost__c svg{width:13px;height:13px}
   .urge__card{padding:28px 22px}
   .urge__sil-it svg{width:52px;height:62px}
-  .gal__grid{grid-template-columns:1fr}
+  .mgrow{min-height:185vh}
+  .mgrow__sticky{align-items:flex-start;padding:92px 18px 28px}
+  .mgrow__h{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .mgrow__sub{font-size:13.5px;line-height:1.6;margin-top:14px}
+  .mgrow__stage{width:225px;height:300px;margin-top:24px}
+  .mgrow__photo{width:195px;height:260px;border-radius:22px 22px 14px 22px}
+  .mgrow__glow{width:225px;height:225px}
+  .mgrow__badge{min-width:165px;font-size:8px;padding:8px 10px;bottom:10px}
+  .mgrow__dots{right:4px;gap:10px}
+  .svcg__grid{grid-template-columns:1fr;gap:12px}
+  .svcg__card,.svcg__card:nth-child(4),.svcg__card:nth-child(5){grid-column:auto}
+  .svcg__card{display:grid;grid-template-columns:118px 1fr;min-height:118px;border-radius:var(--rl)}
+  .svcg__card:hover{transform:none}
+  .svcg__img{aspect-ratio:auto;height:100%;min-height:118px}
+  .svcg__body{padding:13px 14px 14px;justify-content:center}
+  .svcg__label{font-size:8px;margin-bottom:5px}
+  .svcg__t{font-size:19px}
+  .svcg__d{font-size:12px;line-height:1.42;min-height:auto;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .svcg__cta{margin-top:9px;padding:8px 12px;font-size:10.5px}
+  .fue__visual{min-height:200px;max-height:240px}
+  .fue__steps{padding:10px}
   .vf--v{max-width:300px}
   .tl2__it{grid-template-columns:1fr;gap:12px;padding:22px 20px}
   .tl2__month{font-size:26px}
@@ -687,11 +708,10 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   .waf__btn{width:46px;height:46px}
   .waf__btn svg{width:21px;height:21px}
   .waf__tip{display:none}
-  .dr__creds{margin-top:26px;gap:0;justify-content:space-between}
-  .dr__cred-n{font-size:20px}
-  .dr__cred-l{font-size:9px;letter-spacing:.08em}
+  .drx__pt-ico{width:44px;height:44px}
+  .drx__pt-ico svg{width:19px;height:19px}
+  .drx__mini{width:140px;right:-8px;bottom:-22px}
   .cmp__col{padding:26px 20px}
-  .cred__col{padding:26px 20px}
 }
 @media(max-width:400px){
   .hero__h1{font-size:2.25rem}
@@ -699,10 +719,9 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   .nw__card{padding:10px 6px 8px}
   .nw__svg{width:58px;height:70px}
   .qz__grid{gap:9px}
-  .trust__row{grid-template-columns:1fr 1fr}
-  .trust__val{font-size:24px}
-  .stats__row{gap:10px}
-  .stat__n{font-size:29px}
+  .svcg__card{grid-template-columns:102px 1fr}
+  .svcg__t{font-size:17px}
+  .svcg__d{font-size:11.5px}
   .cost__c{padding:11px 9px;font-size:11.5px;gap:6px}
   .cost__row--h .cost__c{padding:10px 9px;font-size:8.5px}
   .urge__sil-it svg{width:44px;height:53px}
@@ -715,6 +734,12 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none}
   .lr>span{transform:none;animation:none}
+  .mgrow{min-height:auto}
+  .mgrow__sticky{position:relative;min-height:0;padding:96px 32px}
+  .mgrow__hair{opacity:1 !important}
+  .mgrow__badge,.mgrow__hint{display:none}
+  .mgrow__dot::after{transform:scale(1)}
+  .fue__headline::after{transform:scaleX(1)}
 }
 </style>
 </head>
@@ -817,15 +842,6 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   </div>
 </header>
 
-<!-- ═══ PROVA CIENTÍFICA ═════════════════════════ -->
-<section class="proof">
-  <div class="wm">
-    <p class="ey ey-c rv">Ciência, não promessa</p>
-    <h2 class="proof__h rv d1">Calvície possui <em>tratamentos comprovados</em> e amplamente estudados!</h2>
-    <p class="proof__sub rv d2">O transplante FUE e os protocolos clínicos de manutenção são consolidados na literatura médica. O caminho certo começa com diagnóstico, não com tentativa e erro.</p>
-  </div>
-</section>
-
 <!-- ═══ RESULTADOS ═══════════════════════════════ -->
 <section class="results sec" id="resultados">
   <div class="w">
@@ -905,88 +921,165 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   </div>
 </section>
 
-<!-- ═══ STATS ════════════════════════════════════ -->
-<section class="stats">
-  <div class="w">
-    <div class="stats__row rv">
-      <div class="stat"><p class="stat__n">+5</p><p class="stat__l">Anos de experiência</p></div>
-      <div class="stat"><p class="stat__n">FUE</p><p class="stat__l">Técnica fio a fio</p></div>
-      <div class="stat"><p class="stat__n">2</p><p class="stat__l">Unidades no RS</p></div>
-      <div class="stat"><p class="stat__n">55898</p><p class="stat__l">CRM ativo · RS</p></div>
+<!-- ═══ EVOLUÇÃO NO SCROLL ═══════════════════════ -->
+<section class="mgrow" id="mgrow">
+  <div class="mgrow__sticky">
+    <div class="mgrow__wrap">
+      <p class="ey ey-c">Ciência, não promessa</p>
+      <h2 class="t2 mgrow__h">Calvície possui <em>tratamentos comprovados</em> e amplamente estudados!</h2>
+      <p class="mgrow__sub">O transplante FUE e os protocolos clínicos de manutenção são consolidados na literatura médica. O caminho certo começa com diagnóstico, não com tentativa e erro.</p>
+      <div class="mgrow__stage">
+        <div class="mgrow__glow" aria-hidden="true"></div>
+        <div class="mgrow__photo">
+          <img class="mgrow__base" src="evolucao-1-560.webp" alt="Homem com calvície acentuada" width="560" height="700" loading="lazy" decoding="async">
+          <img class="mgrow__hair" src="evolucao-2-560.webp" alt="" width="560" height="700" loading="lazy" decoding="async">
+          <img class="mgrow__hair" src="evolucao-3-560.webp" alt="" width="560" height="700" loading="lazy" decoding="async">
+          <img class="mgrow__hair" src="evolucao-4-560.webp" alt="" width="560" height="700" loading="lazy" decoding="async">
+          <img class="mgrow__hair" src="evolucao-5-560.webp" alt="" width="560" height="700" loading="lazy" decoding="async">
+          <div class="mgrow__badge">Evolução visual <strong id="mgrowPct">0%</strong></div>
+        </div>
+        <div class="mgrow__dots" aria-hidden="true">
+          <span class="mgrow__dot on"></span>
+          <span class="mgrow__dot"></span>
+          <span class="mgrow__dot"></span>
+          <span class="mgrow__dot"></span>
+          <span class="mgrow__dot"></span>
+        </div>
+      </div>
+      <div class="mgrow__hint">Role para acompanhar a evolução</div>
     </div>
   </div>
 </section>
 
-<!-- ═══ DR / PLANEJAMENTO ════════════════════════ -->
-<section class="dr sec" id="especialista">
-  <div class="w">
-    <div class="dr__grid">
-      <div class="dr__fig rv">
-        <div class="dr__fig-frame">
-          <picture>
-            <source type="image/webp" srcset="dr-560.webp 560w, dr-900.webp 900w" sizes="(max-width: 960px) 92vw, 46vw">
-            <img src="foto-dr.jpg" alt="Dr. Denildo Sobrinho em retrato profissional" loading="lazy" decoding="async" width="900" height="1349">
-          </picture>
-        </div>
-        <div class="dr__sig">
-          <p class="dr__sig-n">Dr. Denildo Sobrinho</p>
-          <p class="dr__sig-c">CRM 55898/RS</p>
-        </div>
-      </div>
-      <!--
-        SLOT - FOTOS DE PROCEDIMENTO
-        Quando houver fotos reais do Dr. em procedimento (centro cirúrgico, avaliação com paciente),
-        substituir o retrato acima por uma composição: retrato + 2 fotos menores de procedimento
-        (grid 2 colunas, fotos com border-radius var(--rl) e borda var(--g200)).
-      -->
-      <div class="dr__content">
-        <p class="ey rv">O profissional</p>
-        <h2 class="t2 rv d1">Planejamento e atendimento <em>personalizado</em></h2>
-        <p class="dr__bio rv d2">Habilitado em transplante capilar com foco em recuperar a sua identidade visual. Cada caso recebe um protocolo próprio, desenhado a partir do padrão de queda, do perfil metabólico e do resultado que faz sentido para você. Atende em Cruz Alta e Encantado, RS.</p>
-        <div class="dr__pts">
-          <div class="dr__pt rv d2">
-            <span class="dr__pt-ico"><svg aria-hidden="true"><use href="#ic-search"/></svg></span>
-            <div>
-              <p class="dr__pt-t">Avaliação presencial completa</p>
-              <p class="dr__pt-d">Análise do couro cabeludo, densidade e padrão de queda antes de qualquer decisão.</p>
-            </div>
-          </div>
-          <div class="dr__pt rv d3">
-            <span class="dr__pt-ico"><svg aria-hidden="true"><use href="#ic-doc"/></svg></span>
-            <div>
-              <p class="dr__pt-t">Protocolo individualizado</p>
-              <p class="dr__pt-d">Transplante, soroterapia e suplementação combinados conforme o seu caso. Causa tratada, não apenas sintoma.</p>
-            </div>
-          </div>
-          <div class="dr__pt rv d4">
-            <span class="dr__pt-ico"><svg aria-hidden="true"><use href="#ic-shield"/></svg></span>
-            <div>
-              <p class="dr__pt-t">Acompanhamento contínuo</p>
-              <p class="dr__pt-d">Suporte no pós-operatório, com revisões e ajustes até o resultado definitivo.</p>
-            </div>
-          </div>
-        </div>
-        <div class="dr__creds rv d4">
-          <div><span class="dr__cred-n">FUE</span><span class="dr__cred-l">Técnica fio a fio</span></div>
-          <div><span class="dr__cred-n">55898</span><span class="dr__cred-l">CRM · RS</span></div>
-          <div><span class="dr__cred-n">+5</span><span class="dr__cred-l">Anos de experiência</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FRENTES DE TRATAMENTO ════════════════════ -->
-<section class="hlx">
+<!-- ═══ SERVIÇOS ═════════════════════════════════ -->
+<section class="svcg sec" id="servicos">
   <div class="w">
     <div class="sec-hd sec-hd--c rv">
-      <p class="ey ey-c">Como cuidamos do seu cabelo</p>
-      <h2 class="t2">Três frentes, <em>um objetivo</em></h2>
+      <p class="ey ey-c">Soluções capilares</p>
+      <h2 class="t2 t2-lg">Tratamentos pensados para <em>cada necessidade</em></h2>
+      <p class="lead">Conheça opções para restauração dos fios, correção de falhas e cuidado especializado do couro cabeludo com avaliação individual.</p>
     </div>
-    <div class="hlx__grid">
-      <div class="hlx-card rv"><span class="hlx-card__ico"><svg aria-hidden="true"><use href="#ic-target"/></svg></span><p class="hlx-card__t">Transplante FUE</p><p class="hlx-card__d">Implante fio a fio, sem cicatriz linear, com desenho natural da linha capilar.</p></div>
-      <div class="hlx-card rv d1"><span class="hlx-card__ico"><svg aria-hidden="true"><use href="#ic-doc"/></svg></span><p class="hlx-card__t">Soroterapia e suplementação</p><p class="hlx-card__d">Nutrição folicular e prescrição pelo perfil metabólico para fortalecer os fios.</p></div>
-      <div class="hlx-card rv d2"><span class="hlx-card__ico"><svg aria-hidden="true"><use href="#ic-shield"/></svg></span><p class="hlx-card__t">Acompanhamento clínico</p><p class="hlx-card__d">Diagnóstico da causa e revisões contínuas até o resultado definitivo.</p></div>
+    <div class="svcg__grid">
+      <article class="svcg__card rv d1">
+        <div class="svcg__img"><img src="svc-fue-800.webp" alt="Homem avaliando o cabelo" width="800" height="533" loading="lazy" decoding="async"></div>
+        <div class="svcg__body">
+          <p class="svcg__label">Restauração capilar</p>
+          <h3 class="svcg__t">Transplante Capilar FUE</h3>
+          <p class="svcg__d">Técnica minimamente invasiva para recuperar densidade com planejamento individual e foco em naturalidade.</p>
+          <a class="svcg__cta" href="https://wa.me/5555992112028?text=Olá%2C+quero+agendar+uma+avaliação+para+o+transplante+capilar+FUE." target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><svg aria-hidden="true"><use href="#ic-wa"/></svg>Agendar avaliação</a>
+        </div>
+      </article>
+      <article class="svcg__card rv d2">
+        <div class="svcg__img"><img src="svc-feminino-800.webp" alt="Mulher com cabelo longo" width="800" height="534" loading="lazy" decoding="async"></div>
+        <div class="svcg__body">
+          <p class="svcg__label">Solução personalizada</p>
+          <h3 class="svcg__t">Transplante Capilar Feminino</h3>
+          <p class="svcg__d">Abordagem planejada para devolver volume e harmonia ao contorno capilar, respeitando cada caso.</p>
+          <a class="svcg__cta" href="https://wa.me/5555992112028?text=Olá%2C+quero+saber+mais+sobre+o+transplante+capilar+feminino." target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><svg aria-hidden="true"><use href="#ic-wa"/></svg>Agendar avaliação</a>
+        </div>
+      </article>
+      <article class="svcg__card rv d3">
+        <div class="svcg__img"><img src="svc-barba-800.webp" alt="Homem com barba definida" width="800" height="534" loading="lazy" decoding="async"></div>
+        <div class="svcg__body">
+          <p class="svcg__label">Definição facial</p>
+          <h3 class="svcg__t">Transplante de Barba</h3>
+          <p class="svcg__d">Indicado para preencher falhas e construir uma barba mais uniforme, densa e alinhada ao perfil do paciente.</p>
+          <a class="svcg__cta" href="https://wa.me/5555992112028?text=Olá%2C+quero+saber+mais+sobre+o+transplante+de+barba." target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><svg aria-hidden="true"><use href="#ic-wa"/></svg>Agendar avaliação</a>
+        </div>
+      </article>
+      <article class="svcg__card rv d4">
+        <div class="svcg__img"><img src="svc-testa-800.webp" alt="Close da linha frontal do cabelo" width="800" height="533" loading="lazy" decoding="async"></div>
+        <div class="svcg__body">
+          <p class="svcg__label">Harmonia facial</p>
+          <h3 class="svcg__t">Redução de Testa</h3>
+          <p class="svcg__d">Procedimento voltado a equilibrar proporções e reposicionar a linha capilar de forma planejada.</p>
+          <a class="svcg__cta" href="https://wa.me/5555992112028?text=Olá%2C+quero+saber+mais+sobre+a+redução+de+testa." target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><svg aria-hidden="true"><use href="#ic-wa"/></svg>Agendar avaliação</a>
+        </div>
+      </article>
+      <article class="svcg__card rv d5">
+        <div class="svcg__img svcg__img--tri"><img src="svc-tricologia-800.webp" alt="Close de cabelo em avaliação" width="800" height="1199" loading="lazy" decoding="async"></div>
+        <div class="svcg__body">
+          <p class="svcg__label">Saúde capilar</p>
+          <h3 class="svcg__t">Tricologia Avançada</h3>
+          <p class="svcg__d">Avaliação direcionada para queda, afinamento dos fios e alterações do couro cabeludo.</p>
+          <a class="svcg__cta" href="https://wa.me/5555992112028?text=Olá%2C+quero+agendar+uma+avaliação+de+tricologia." target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><svg aria-hidden="true"><use href="#ic-wa"/></svg>Agendar avaliação</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DR / POR QUE ESTE ACOMPANHAMENTO ═════════ -->
+<section class="drx sec" id="especialista">
+  <div class="drx__bg" aria-hidden="true"></div>
+  <div class="w drx__in">
+    <div class="sec-hd sec-hd--c rv">
+      <p class="ey ey-c">Escolha com segurança</p>
+      <h2 class="t2 t2-lg">Por que fazer seu transplante capilar <em>com este acompanhamento?</em></h2>
+    </div>
+    <div class="drx__grid">
+      <div class="drx__col drx__col--l">
+        <div class="drx__pt rv d1">
+          <div class="drx__pt-ico"><svg aria-hidden="true"><use href="#ic-doc"/></svg></div>
+          <div>
+            <p class="drx__pt-t">Mais de 128 cirurgias realizadas</p>
+            <p class="drx__pt-d">Histórico real de procedimentos conduzidos pelo Dr. Denildo.</p>
+          </div>
+        </div>
+        <div class="drx__pt rv d2">
+          <div class="drx__pt-ico"><svg aria-hidden="true"><use href="#ic-search"/></svg></div>
+          <div>
+            <p class="drx__pt-t">Avaliação presencial completa</p>
+            <p class="drx__pt-d">Diagnóstico do seu caso antes de qualquer decisão.</p>
+          </div>
+        </div>
+        <div class="drx__pt rv d3">
+          <div class="drx__pt-ico"><svg aria-hidden="true"><use href="#ic-target"/></svg></div>
+          <div>
+            <p class="drx__pt-t">Técnica FUE fio a fio</p>
+            <p class="drx__pt-d">Extração individual dos folículos, sem cicatriz linear.</p>
+          </div>
+        </div>
+      </div>
+      <div class="drx__figwrap rv">
+        <figure class="drx__fig">
+          <picture>
+            <source type="image/webp" srcset="dr-principal-640.webp 640w, dr-principal-1100.webp 1100w" sizes="(max-width: 960px) 92vw, 460px">
+            <img src="dr-principal-1100.webp" alt="Dr. Denildo Sobrinho em retrato profissional" loading="lazy" decoding="async" width="1100" height="734">
+          </picture>
+          <figcaption class="drx__cap">
+            <p class="drx__cap-n">Dr. Denildo Sobrinho</p>
+            <p class="drx__cap-c">CRM 55898/RS</p>
+          </figcaption>
+        </figure>
+        <figure class="drx__mini">
+          <img src="dr-procedimento-480.webp" alt="Dr. Denildo durante procedimento de transplante capilar" loading="lazy" decoding="async" width="480" height="720">
+          <span class="drx__mini-l">Durante o procedimento</span>
+        </figure>
+      </div>
+      <div class="drx__col">
+        <div class="drx__pt rv d1">
+          <div class="drx__pt-ico"><svg aria-hidden="true"><use href="#ic-shield"/></svg></div>
+          <div>
+            <p class="drx__pt-t">Anestesista durante toda a cirurgia</p>
+            <p class="drx__pt-d">Mais segurança e conforto do início ao fim.</p>
+          </div>
+        </div>
+        <div class="drx__pt rv d2">
+          <div class="drx__pt-ico"><svg aria-hidden="true"><use href="#ic-plus"/></svg></div>
+          <div>
+            <p class="drx__pt-t">Ambiente hospitalar</p>
+            <p class="drx__pt-d">Estrutura adequada para um procedimento tranquilo.</p>
+          </div>
+        </div>
+        <div class="drx__pt rv d3">
+          <div class="drx__pt-ico"><svg aria-hidden="true"><use href="#ic-check"/></svg></div>
+          <div>
+            <p class="drx__pt-t">Protocolo individualizado</p>
+            <p class="drx__pt-d">Cada paciente recebe um plano próprio de tratamento.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1099,32 +1192,6 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
   </div>
 </section>
 
-<!-- ═══ CREDENCIAIS DO DR. ═══════════════════════ -->
-<section class="cred">
-  <div class="w">
-    <div class="cred__grid">
-      <div class="cred__col rv">
-        <span class="cmp__tag cred__tag">Quem conduz o seu caso</span>
-        <p class="cmp__title">Dr. Denildo Sobrinho, CRM 55898/RS</p>
-        <div class="cmp__list">
-          <p class="cmp__it cred__it"><svg aria-hidden="true"><use href="#ic-check"/></svg>Médico habilitado em transplante capilar, com +5 anos de experiência.</p>
-          <p class="cmp__it cred__it"><svg aria-hidden="true"><use href="#ic-check"/></svg>Técnica FUE fio a fio, sem cicatriz linear, com desenho natural da linha.</p>
-          <p class="cmp__it cred__it"><svg aria-hidden="true"><use href="#ic-check"/></svg>Cada paciente recebe um protocolo próprio, do diagnóstico ao pós.</p>
-        </div>
-      </div>
-      <div class="cred__col rv d1">
-        <span class="cmp__tag cred__tag">Como você é acompanhado</span>
-        <p class="cmp__title">Atendimento próximo, em Cruz Alta e região</p>
-        <div class="cmp__list">
-          <p class="cmp__it cred__it"><svg aria-hidden="true"><use href="#ic-check"/></svg>Avaliação presencial nas unidades de Cruz Alta e Encantado, RS.</p>
-          <p class="cmp__it cred__it"><svg aria-hidden="true"><use href="#ic-check"/></svg>Atendimento de segunda a sábado, das 09:00 às 19:00.</p>
-          <p class="cmp__it cred__it"><svg aria-hidden="true"><use href="#ic-check"/></svg>Revisões e ajustes contínuos no pós-operatório, até o resultado definitivo.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ URGÊNCIA / DHT ═══════════════════════════ -->
 <section class="urge">
   <div class="w">
@@ -1166,67 +1233,6 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
         <span class="vf__hint">Toque para assistir · vídeo carrega só após o clique</span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ═══ SERVIÇOS ═════════════════════════════════ -->
-<section class="svcs sec" id="servicos">
-  <div class="w">
-    <div class="svcs__hd">
-      <div class="sec-hd rv" style="margin-bottom:0">
-        <p class="ey">Serviços</p>
-        <h2 class="t2">Tratamento <em>completo</em>, além do transplante</h2>
-        <p class="lead">Valores definidos após avaliação individual. Deslize para conhecer cada frente do tratamento.</p>
-      </div>
-      <div class="svcs__nav rv d2">
-        <button class="car-btn" id="svcPrev" aria-label="Serviço anterior"><svg aria-hidden="true"><use href="#ic-left"/></svg></button>
-        <button class="car-btn" id="svcNext" aria-label="Próximo serviço"><svg aria-hidden="true"><use href="#ic-arr"/></svg></button>
-      </div>
-    </div>
-    <div class="svc-track rv d1" id="svcCar">
-      <article class="svc-card svc-card--feat">
-        <span class="svc-card__ico"><svg aria-hidden="true"><use href="#ic-target"/></svg></span>
-        <h3 class="svc-card__title">Transplante Capilar Fio a Fio (FUE)</h3>
-        <p class="svc-card__body">Sem cicatriz linear, resultado natural e permanente. Retorno à rotina em 3 a 5 dias.</p>
-        <div class="svc-card__cta">
-          <a href="https://wa.me/5555992112028?text=Olá%2C+quero+saber+mais+sobre+o+transplante+capilar+fio+a+fio." class="bwa bwa-sm" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
-            <svg aria-hidden="true"><use href="#ic-wa"/></svg>
-            Saber mais sobre o FUE
-          </a>
-        </div>
-      </article>
-      <article class="svc-card">
-        <span class="svc-card__ico"><svg aria-hidden="true"><use href="#ic-doc"/></svg></span>
-        <h3 class="svc-card__title">Soroterapia Ortomolecular</h3>
-        <p class="svc-card__body">Nutrição folicular via intravenosa. Acelera o crescimento e fortalece os fios.</p>
-      </article>
-      <article class="svc-card">
-        <span class="svc-card__ico"><svg aria-hidden="true"><use href="#ic-search"/></svg></span>
-        <h3 class="svc-card__title">Tratamento de Queda Capilar</h3>
-        <p class="svc-card__body">Identificação e tratamento da causa raiz, com acompanhamento clínico contínuo.</p>
-      </article>
-      <article class="svc-card">
-        <span class="svc-card__ico"><svg aria-hidden="true"><use href="#ic-shield"/></svg></span>
-        <h3 class="svc-card__title">Suplementação Capilar</h3>
-        <p class="svc-card__body">Prescrição baseada no perfil metabólico. Fios mais fortes de dentro para fora.</p>
-      </article>
-      <article class="svc-card">
-        <span class="svc-card__ico"><svg aria-hidden="true"><use href="#ic-info"/></svg></span>
-        <h3 class="svc-card__title">Análise Capilar Completa</h3>
-        <p class="svc-card__body">Diagnóstico completo: couro cabeludo, densidade e padrão de queda.</p>
-      </article>
-      <article class="svc-card">
-        <span class="svc-card__ico"><svg aria-hidden="true"><use href="#ic-plus"/></svg></span>
-        <h3 class="svc-card__title">Fortalecimento Capilar</h3>
-        <p class="svc-card__body">Estimula a regeneração folicular e potencializa a absorção dos ativos.</p>
-      </article>
-      <article class="svc-card">
-        <span class="svc-card__ico"><svg aria-hidden="true"><use href="#ic-clock"/></svg></span>
-        <h3 class="svc-card__title">Pós-operatório Assistido</h3>
-        <p class="svc-card__body">Revisão, suplementação ajustada e cuidados contínuos após o transplante.</p>
-      </article>
-    </div>
-    <div class="car__dots svcs__dots" id="svcDots" role="tablist" aria-label="Serviços"></div>
   </div>
 </section>
 
@@ -1381,53 +1387,145 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
 <!-- ═══ GALERIA DE EVOLUÇÕES ═════════════════════ -->
 <section class="gal sec">
   <div class="w">
-    <div class="sec-hd sec-hd--c rv">
-      <p class="ey ey-c">Mais evoluções</p>
-      <h2 class="t2">Antes e depois, <em>lado a lado</em></h2>
+    <div class="gal__hd sec-hd rv" style="margin-bottom:0">
+      <div>
+        <p class="ey">Mais evoluções</p>
+        <h2 class="t2">Antes e depois, <em>lado a lado</em></h2>
+        <p class="lead">Registros reais de pacientes do Dr. Denildo. Arraste para o lado para ver mais casos.</p>
+      </div>
+      <div class="gal__nav">
+        <button class="car-btn" id="galPrev" aria-label="Caso anterior"><svg aria-hidden="true"><use href="#ic-left"/></svg></button>
+        <button class="car-btn" id="galNext" aria-label="Próximo caso"><svg aria-hidden="true"><use href="#ic-arr"/></svg></button>
+      </div>
     </div>
-    <div class="gal__grid">
-      <figure class="gal__it rv">
+    <div class="car rv d1" id="galCar" aria-label="Galeria de antes e depois">
+      <figure class="car__slide gal__slide">
         <div class="gal__pair">
-          <span class="gal__badge">Antes</span>
-          <picture><source type="image/webp" srcset="antes-1-900.webp"><img src="antes-1.jpg" alt="Antes do transplante, com entradas acentuadas na linha frontal" loading="lazy" decoding="async" width="900" height="1200"></picture>
-          <picture><source type="image/webp" srcset="depois-1-900.webp"><img src="depois-1.jpg" alt="Depois do transplante, com a linha frontal restaurada" loading="lazy" decoding="async" width="900" height="1440"></picture>
-          <span class="gal__badge gal__badge--a">Depois</span>
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-alberto-antes-640.webp" alt="Antes do tratamento, paciente Alberto" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-alberto-depois-640.webp" alt="Depois de 4 meses, paciente Alberto" loading="lazy" decoding="async"></div>
         </div>
-        <figcaption class="gal__cap">Linha frontal restaurada · Transplante FUE</figcaption>
+        <figcaption class="gal__cap">Alberto · Volume e queda · Evolução em 4 meses</figcaption>
       </figure>
-      <figure class="gal__it rv d1">
+      <figure class="car__slide gal__slide">
         <div class="gal__pair">
-          <span class="gal__badge">Antes</span>
-          <picture><source type="image/webp" srcset="antes-2-900.webp"><img src="antes-2.jpg" alt="Antes do transplante, com rarefação difusa no topo e na coroa" loading="lazy" decoding="async" width="900" height="1200"></picture>
-          <picture><source type="image/webp" srcset="depois-2-900.webp"><img src="depois-2.jpg" alt="Depois do transplante, com densidade recuperada no topo" loading="lazy" decoding="async" width="900" height="1199"></picture>
-          <span class="gal__badge gal__badge--a">Depois</span>
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-alexandre-antes-640.webp" alt="Antes do transplante capilar, paciente Alexandre" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-alexandre-depois-640.webp" alt="Depois de 1 ano, paciente Alexandre" loading="lazy" decoding="async"></div>
         </div>
-        <figcaption class="gal__cap">Densidade recuperada no topo · Transplante FUE</figcaption>
+        <figcaption class="gal__cap">Alexandre · Transplante capilar · Evolução em 1 ano</figcaption>
+      </figure>
+      <figure class="car__slide gal__slide">
+        <div class="gal__pair">
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-alisson-antes-640.webp" alt="Antes do tratamento, paciente Alisson" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-alisson-depois-640.webp" alt="Depois de 3 meses, paciente Alisson" loading="lazy" decoding="async"></div>
+        </div>
+        <figcaption class="gal__cap">Alisson · Tratamento prévio ao transplante · 3 meses</figcaption>
+      </figure>
+      <figure class="car__slide gal__slide">
+        <div class="gal__pair">
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-cristiano1-antes-640.webp" alt="Antes do tratamento, paciente Cristiano" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-cristiano1-depois-640.webp" alt="Depois de 2 meses, paciente Cristiano" loading="lazy" decoding="async"></div>
+        </div>
+        <figcaption class="gal__cap">Cristiano · Calvície · Evolução em 2 meses</figcaption>
+      </figure>
+      <figure class="car__slide gal__slide">
+        <div class="gal__pair">
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-cristiano2-antes-640.webp" alt="Antes dos tratamentos clínicos, paciente Cristiano" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-cristiano2-depois-640.webp" alt="Depois de 3 meses, paciente Cristiano" loading="lazy" decoding="async"></div>
+        </div>
+        <figcaption class="gal__cap">Cristiano · Tratamentos clínicos · Evolução em 3 meses</figcaption>
+      </figure>
+      <figure class="car__slide gal__slide">
+        <div class="gal__pair">
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-emerson-antes-640.webp" alt="Antes do tratamento, paciente Emerson" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-emerson-depois-640.webp" alt="Depois de 3 meses, paciente Emerson" loading="lazy" decoding="async"></div>
+        </div>
+        <figcaption class="gal__cap">Emerson · Evolução em 3 meses</figcaption>
+      </figure>
+      <figure class="car__slide gal__slide">
+        <div class="gal__pair">
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-fatima-antes-640.webp" alt="Antes do tratamento, paciente Fátima" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-fatima-depois-640.webp" alt="Depois de 5 meses, paciente Fátima" loading="lazy" decoding="async"></div>
+        </div>
+        <figcaption class="gal__cap">Fátima · Eflúvio telógeno · Evolução em 5 meses</figcaption>
+      </figure>
+      <figure class="car__slide gal__slide">
+        <div class="gal__pair">
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-marisa-antes-640.webp" alt="Antes do tratamento, paciente Marisa" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-marisa-depois-640.webp" alt="Depois de 4 meses, paciente Marisa" loading="lazy" decoding="async"></div>
+        </div>
+        <figcaption class="gal__cap">Marisa · Eflúvio telógeno · Evolução em 4 meses</figcaption>
+      </figure>
+      <figure class="car__slide gal__slide">
+        <div class="gal__pair">
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-patrick-antes-640.webp" alt="Antes do tratamento, paciente Patrick" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-patrick-depois-640.webp" alt="Depois de 45 dias, paciente Patrick" loading="lazy" decoding="async"></div>
+        </div>
+        <figcaption class="gal__cap">Patrick · Evolução em 45 dias</figcaption>
+      </figure>
+      <figure class="car__slide gal__slide">
+        <div class="gal__pair">
+          <div class="gal__ph"><span class="gal__badge">Antes</span><img src="ba-silvano-antes-640.webp" alt="Antes do tratamento, paciente Silvano" loading="lazy" decoding="async"></div>
+          <div class="gal__ph"><span class="gal__badge gal__badge--a">Depois</span><img src="ba-silvano-depois-640.webp" alt="Depois de 4 meses, paciente Silvano" loading="lazy" decoding="async"></div>
+        </div>
+        <figcaption class="gal__cap">Silvano · Evolução em 4 meses</figcaption>
       </figure>
     </div>
+    <div class="car__dots" id="galDots" role="tablist" aria-label="Evoluções"></div>
   </div>
 </section>
 
-<!-- ═══ TRUST ════════════════════════════════════ -->
-<section class="trust">
+<!-- ═══ TÉCNICA FUE ══════════════════════════════ -->
+<section class="fue sec">
   <div class="w">
-    <div class="trust__row rv">
-      <div class="trust__cell">
-        <p class="trust__val">Fio a fio</p>
-        <p class="trust__lbl">Técnica cirúrgica precisa</p>
+    <div class="sec-hd rv">
+      <p class="ey">Conheça</p>
+      <h2 class="t2 t2-lg">A técnica <em>FUE</em></h2>
+      <p class="lead">Uma abordagem precisa e minimamente invasiva para restaurar a densidade dos fios com planejamento individual e naturalidade no resultado.</p>
+    </div>
+    <div class="fue__grid">
+      <div class="fue__visual rv">
+        <img src="fue-foto-800.webp" alt="Dr. Denildo durante procedimento de transplante capilar" width="800" height="1200" loading="lazy" decoding="async">
       </div>
-      <div class="trust__cell">
-        <p class="trust__val">3 a 5 dias</p>
-        <p class="trust__lbl">Para retornar à rotina</p>
+      <div class="fue__content">
+        <h3 class="fue__headline rv d1">Extração folicular individual, recuperação discreta e atenção total ao desenho natural do cabelo.</h3>
+        <p class="rv d2">A técnica <strong>FUE, Follicular Unit Extraction</strong>, consiste na retirada individual das unidades foliculares diretamente da área doadora, sem a necessidade de uma incisão linear.</p>
+        <p class="rv d3">Com o uso do <strong>punch</strong>, os folículos são extraídos fio a fio e preparados com cuidado para posterior implantação, reduzindo a manipulação desnecessária e favorecendo a qualidade dos enxertos.</p>
+        <div class="fue__hl rv d4">Na fase de implantação, a equipe considera <strong>densidade, direção e angulação natural</strong> para que o resultado acompanhe a anatomia e o estilo de cada paciente.</div>
       </div>
-      <div class="trust__cell">
-        <p class="trust__val">10 a 12 meses</p>
-        <p class="trust__lbl">Até o resultado completo</p>
-      </div>
-      <div class="trust__cell">
-        <p class="trust__val">Cruz Alta e região</p>
-        <p class="trust__lbl">Atendimento no RS</p>
-      </div>
+      <aside class="fue__steps rv d2">
+        <div class="fue__step">
+          <div class="fue__step-ico"><svg aria-hidden="true"><use href="#ic-search"/></svg></div>
+          <div>
+            <small>Etapa 1</small>
+            <h4>Planejamento da área doadora</h4>
+            <p>Mapeamento dos folículos a serem extraídos com segurança.</p>
+          </div>
+        </div>
+        <div class="fue__step">
+          <div class="fue__step-ico"><svg aria-hidden="true"><use href="#ic-target"/></svg></div>
+          <div>
+            <small>Etapa 2</small>
+            <h4>Extração individual</h4>
+            <p>Remoção fio a fio, preservando cada unidade folicular.</p>
+          </div>
+        </div>
+        <div class="fue__step">
+          <div class="fue__step-ico"><svg aria-hidden="true"><use href="#ic-doc"/></svg></div>
+          <div>
+            <small>Etapa 3</small>
+            <h4>Triagem e preparo</h4>
+            <p>Organização dos enxertos para qualidade e precisão na implantação.</p>
+          </div>
+        </div>
+        <div class="fue__step">
+          <div class="fue__step-ico"><svg aria-hidden="true"><use href="#ic-check"/></svg></div>
+          <div>
+            <small>Etapa 4</small>
+            <h4>Implantação estratégica</h4>
+            <p>Posicionamento conforme densidade, orientação e angulação natural.</p>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
@@ -1734,6 +1832,7 @@ function onScroll(){
     var max=doc.documentElement.scrollHeight-win.innerHeight;
     prog.style.width=(max>0?(y/max)*100:0)+'%';
     sweepReveals();
+    mgrowUpdate();
     quizAutoCheck(y,max);
     stickyCheck(y,max);
     ticking=false;
@@ -1766,6 +1865,23 @@ function sweepReveals(){
   }
   pending=keep;
 }
+
+/* ── Evolução no scroll (mgrow) ───────────────── */
+var mg=$('#mgrow'),mgStages=mg?$$('.mgrow__hair',mg):[],mgPct=$('#mgrowPct'),mgDots=mg?$$('.mgrow__dot',mg):[];
+var mgTh=[[.08,.28],[.26,.48],[.46,.7],[.68,.94]];
+function sstep(a,b,x){var t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t)}
+function mgrowUpdate(){
+  if(!mg||reduced)return;
+  var r=mg.getBoundingClientRect();
+  if(r.bottom<0||r.top>win.innerHeight)return;
+  var max=mg.offsetHeight-win.innerHeight;
+  var p=Math.max(0,Math.min(1,(-r.top)/(max||1)));
+  mgPct.textContent=Math.round(p*100)+'%';
+  for(var i=0;i<mgStages.length;i++)mgStages[i].style.opacity=sstep(mgTh[i][0],mgTh[i][1],p).toFixed(3);
+  var a=p<.18?0:p<.38?1:p<.58?2:p<.78?3:4;
+  for(var j=0;j<mgDots.length;j++)mgDots[j].classList.toggle('on',j<=a);
+}
+if(mg)win.addEventListener('resize',mgrowUpdate,{passive:true});
 
 /* ── Before/After sliders ─────────────────────── */
 $$('[data-ba]').forEach(function(ba){
@@ -1858,7 +1974,7 @@ function initCarousel(o){
   win.addEventListener('resize',sync,{passive:true});
 }
 initCarousel({track:'#car',dots:'#carDots',prev:'#carPrev',next:'#carNext',nav:'.results__nav',slide:'.car__slide',label:'Ver caso'});
-initCarousel({track:'#svcCar',dots:'#svcDots',prev:'#svcPrev',next:'#svcNext',nav:'.svcs__nav',slide:'.svc-card',label:'Ver serviço'});
+initCarousel({track:'#galCar',dots:'#galDots',prev:'#galPrev',next:'#galNext',nav:'.gal__nav',slide:'.car__slide',label:'Ver evolução'});
 
 /* ── Vídeos: facade → iframe youtube-nocookie só no clique ── */
 $$('[data-video]').forEach(function(vf){
