@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Política de Privacidade | Dr. Denildo Sobrinho</title>
-<meta name="description" content="Política de privacidade do site do Dr. Denildo Sobrinho: como o site trata (e não coleta) dados pessoais.">
+<meta name="description" content="Política de privacidade do site do Dr. Denildo Sobrinho: quais dados são tratados, para quê, com quem são compartilhados e como exercer seus direitos.">
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#0B1120">
 <link rel="canonical" href="https://drdenildo.com.br/privacidade.html">
 <link rel="icon" type="image/png" href="favicon-denildo.png" sizes="any">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<script src="consent.js?v=1" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
@@ -28,6 +29,7 @@ main{max-width:760px;margin:0 auto;padding:72px 32px 96px}
 h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2rem,5vw,2.9rem);line-height:1.12;color:#fff;letter-spacing:-.015em}
 h1 em{font-style:italic;color:var(--gold-lt)}
 .upd{margin-top:14px;font-size:12px;color:var(--g700);letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.sum{margin-top:28px;font-size:16px;color:#fff;font-weight:300}
 h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;color:#fff;margin:44px 0 12px;letter-spacing:-.01em}
 p{font-size:15px;margin:0 0 14px}
 ul{margin:0 0 14px;padding-left:22px}
@@ -48,31 +50,83 @@ a:hover{color:#fff}
 </nav>
 <main>
   <h1>Política de <em>Privacidade</em></h1>
-  <p class="upd">Última atualização: agosto de 2026</p>
+  <p class="upd">Última atualização: outubro de 2026</p>
+  <p class="sum">Este site não tem cadastro nem formulário que envie dados a um servidor. Quando você fala com o consultório pelo WhatsApp, ele recebe o que você escreve. A medição de visitas pelo Google Analytics é opcional e só é ativada se você aceitar no aviso de cookies, e você pode mudar essa escolha a qualquer momento.</p>
 
-  <h2>1. Quem somos</h2>
-  <p>Este site pertence ao <strong>Dr. Denildo Sobrinho</strong> (CRM 55898/RS), médico habilitado em transplante capilar, com atendimento em Cruz Alta e Encantado, no Rio Grande do Sul.</p>
+  <h2>1. Quem é o controlador</h2>
+  <p>Este site pertence ao <strong>Dr. Denildo Sobrinho</strong> (CRM 55898/RS), médico habilitado em transplante capilar, com atendimento em Cruz Alta e Encantado, no Rio Grande do Sul. Ele é o <strong>controlador</strong> dos dados pessoais tratados por meio deste site, ou seja, quem decide como e para que esses dados são usados. Para assuntos de privacidade, fale pelo <a href="https://wa.me/5555992112028" target="_blank" rel="noopener noreferrer">WhatsApp (55) 99211-2028</a>.</p>
+  <!-- EDITE AQUI: confirmar com o cliente se há encarregado (DPO) designado; se houver, publicar nome e contato aqui. Sem encarregado, validar com o jurídico se a dispensa de pequeno porte se aplica, já que o consultório recebe dados de saúde pelo WhatsApp. -->
 
-  <h2>2. O que este site coleta</h2>
-  <p><strong>Este site não coleta nem armazena dados pessoais em servidores.</strong> Ele é um site estático: não possui banco de dados, sistema de cadastro, formulários que enviam informações para um servidor, ferramentas de análise de audiência (analytics) ou pixels de publicidade.</p>
+  <h2>2. O que este site trata</h2>
+  <p>O site é estático: não possui banco de dados, sistema de cadastro nem formulário que envie informações a um servidor próprio. Os tratamentos de dados pessoais ligados a ele estão descritos nas seções 3 (medição de visitas), 4 (dados técnicos de acesso), 5 (contato pelo WhatsApp) e 7 (vídeos do YouTube), cada um com a sua finalidade. Não há pixels de publicidade.</p>
 
-  <h2>3. Questionário de autoavaliação</h2>
-  <p>O questionário de estágio de queda funciona inteiramente no seu navegador. As respostas (nível aproximado, tempo de queda e primeiro nome) <strong>não são enviadas nem gravadas por este site</strong>. Ao concluir, elas apenas compõem uma mensagem que abre no <strong>seu próprio WhatsApp</strong>. Você vê o texto completo antes de decidir enviá-lo. A partir do envio, a conversa é regida pela política de privacidade do WhatsApp.</p>
+  <h2>3. Medição de visitas (Google Analytics)</h2>
+  <p>Com a sua permissão, o site usa o <strong>Google Analytics</strong>, serviço do Google, para medir as visitas de forma estatística. <strong>Sem a permissão, o Google Analytics não é carregado e nenhum dado vai para ele.</strong></p>
+  <ul>
+    <li><strong>Dados tratados:</strong> páginas visitadas, data e duração da visita, rolagem da página, cliques em links que levam para fora do site (como WhatsApp, Instagram e Google Maps), página ou site de origem (uma busca ou rede social, por exemplo), tipo de dispositivo, navegador, sistema operacional, tamanho de tela, idioma e localização aproximada (cidade ou região), estimada a partir do endereço IP. Um identificador aleatório guardado em cookie permite distinguir uma primeira visita de uma visita de retorno.</li>
+    <li><strong>O que não vai para a medição:</strong> as respostas e o nome digitados no questionário de autoavaliação e o conteúdo das suas mensagens de WhatsApp. Segundo o Google, o Google Analytics 4 não registra nem armazena endereços IP.</li>
+    <li><strong>Finalidade:</strong> entender quais conteúdos interessam, como os visitantes chegam ao site e o que pode ser melhorado, além de avaliar o resultado das ações de divulgação do consultório. Os relatórios são estatísticos e não são usados para identificar você.</li>
+    <li><strong>Base legal:</strong> consentimento (art. 7º, I, da LGPD), pedido no aviso de cookies antes de qualquer coleta. Recusar não muda nada no funcionamento do site.</li>
+    <li><strong>Duração:</strong> os cookies do Google Analytics duram até 2 anos no seu navegador, a menos que você os apague antes ou retire o consentimento. Os dados de cada visitante ficam no Google Analytics pelo prazo de retenção configurado na conta (2 ou 14 meses, nas opções padrão da ferramenta). Depois disso, restam apenas relatórios agregados.<!-- EDITE AQUI: confirmar com a assessoria de marketing o prazo real em Administrador > Coleta e retenção de dados e escrever só esse valor. --></li>
+    <li><strong>Sem publicidade:</strong> a medição está configurada sem os sinais do Google e sem personalização de anúncios. O consentimento pedido vale só para estatística.</li>
+    <li><strong>Como mudar de ideia:</strong> a qualquer momento, na página <a href="preferencias-cookies.html">Preferências de Cookies</a>. Ao retirar o consentimento, os cookies do Google Analytics são apagados do seu navegador e a medição para.</li>
+  </ul>
 
-  <h2>4. Armazenamento local temporário</h2>
-  <p>Para melhorar a navegação, o site usa duas marcações técnicas no armazenamento de sessão do seu navegador (<em>sessionStorage</em>): uma que evita reabrir o questionário automaticamente e outra que lembra que você fechou a barra de agendamento. Elas <strong>não identificam você</strong>, não saem do seu dispositivo e são apagadas automaticamente quando a aba é fechada. Detalhes na <a href="cookies.html">Política de Cookies</a>.</p>
+  <h2>4. Dados técnicos de acesso</h2>
+  <p>Como em qualquer site, ao abrir uma página o seu navegador envia dados técnicos (endereço IP, data e hora, página pedida, navegador e sistema operacional) a quem entrega o conteúdo:</p>
+  <ul>
+    <li><strong>Hospedagem:</strong> o site é hospedado pela <strong>Vercel</strong>, que recebe esses dados para entregar as páginas e proteger o serviço contra abusos, e pode mantê-los em registros de acesso por período limitado.</li>
+    <li><strong>Fontes tipográficas:</strong> as fontes do site são carregadas do <strong>Google Fonts</strong>. Para entregá-las, o Google recebe o endereço IP e dados do navegador. Esse serviço não usa cookies.</li>
+  </ul>
+  <p>Base legal: legítimo interesse (art. 7º, IX, da LGPD) em exibir o site corretamente e com segurança. Este site não usa esses dados para identificar você.</p>
 
-  <h2>5. Vídeos do YouTube</h2>
-  <p>Os vídeos usam o modo de privacidade ampliada do YouTube (youtube-nocookie.com) e <strong>só são carregados depois que você clica para assistir</strong>. Antes do clique, nenhum dado é trocado com o Google. Após o clique, aplicam-se as políticas de privacidade do Google/YouTube.</p>
+  <h2>5. Contato pelo WhatsApp e questionário</h2>
+  <p>O questionário de estágio de queda funciona inteiramente no seu navegador. As respostas (nível aproximado, tempo de queda e primeiro nome) <strong>não são enviadas nem gravadas por este site</strong> e não vão para a medição de visitas. Ao concluir, elas apenas compõem uma mensagem que abre no <strong>seu próprio WhatsApp</strong>. Você vê o texto completo antes de decidir enviá-lo.</p>
+  <p>Quando você envia uma mensagem ao consultório pelo WhatsApp, pelo questionário ou por qualquer botão do site:</p>
+  <ul>
+    <li><strong>Dados tratados:</strong> seu número de telefone, o nome do seu perfil no WhatsApp e o conteúdo da conversa. As respostas do questionário e o que você contar sobre a queda de cabelo são informações de saúde, que a LGPD trata como dado pessoal sensível.</li>
+    <li><strong>Finalidade:</strong> responder você, agendar a consulta e preparar a avaliação médica.</li>
+    <li><strong>Base legal:</strong> procedimentos preliminares ao atendimento, feitos a seu pedido (art. 7º, V, da LGPD), e, para as informações de saúde, tutela da saúde em procedimento realizado por profissional de saúde (art. 11, II, f).<!-- EDITE AQUI: validar a base legal com o cliente ou o jurídico. --></li>
+    <li><strong>Duração:</strong> pelo tempo necessário ao atendimento e ao cumprimento das obrigações legais da atividade médica.<!-- EDITE AQUI: confirmar com o cliente por quanto tempo as conversas são guardadas e se entram no prontuário. --></li>
+    <li><strong>Quem tem acesso:</strong> o Dr. Denildo Sobrinho e a equipe que faz o atendimento.</li>
+  </ul>
+  <p>O WhatsApp, serviço da Meta, transporta as mensagens e trata os dados da sua conta conforme a política de privacidade dele. O consultório trata o que recebe conforme esta política.</p>
 
-  <h2>6. Links externos</h2>
+  <h2>6. Cookies e armazenamento no navegador</h2>
+  <p>Os cookies do Google Analytics só existem se você aceitar a medição. Além deles, o site guarda a sua escolha sobre cookies por 12 meses (<em>localStorage</em>) e duas marcações técnicas de sessão (<em>sessionStorage</em>), que somem ao fechar a aba. Essas marcações <strong>não identificam você</strong> e não saem do seu dispositivo. Detalhes na <a href="cookies.html">Política de Cookies</a>.</p>
+
+  <h2>7. Vídeos do YouTube</h2>
+  <p>Os vídeos usam o modo de privacidade ampliada do YouTube (youtube-nocookie.com) e <strong>só são carregados depois que você clica para assistir</strong>. Antes do clique, nenhum dado é trocado com o YouTube. Após o clique, o Google recebe o endereço IP e dados do navegador para exibir o vídeo que você pediu, com base no legítimo interesse (art. 7º, IX, da LGPD) em mostrar o conteúdo que você escolheu ver, e aplicam-se as políticas de privacidade do Google/YouTube.</p>
+
+  <h2>8. Com quem os dados são compartilhados</h2>
+  <ul>
+    <li><strong>Google (Google LLC):</strong> Google Analytics, só com o seu consentimento; Google Fonts, para exibir as fontes; YouTube, só se você der play em um vídeo.</li>
+    <li><strong>Vercel (Vercel Inc.):</strong> hospedagem do site.</li>
+    <li><strong>WhatsApp (Meta):</strong> canal das conversas que você inicia com o consultório.</li>
+    <li><strong>Equipe do consultório e assessoria de marketing contratada por ele:</strong> acesso aos relatórios estatísticos do Google Analytics, para avaliar o desempenho do site.</li>
+  </ul>
+  <p>No Google Analytics e na hospedagem, Google e Vercel tratam os dados em nome do consultório, como <strong>operadores</strong>, seguindo os contratos de cada serviço. No Google Fonts e no YouTube, o Google segue a própria política de privacidade. Esses serviços podem processar os dados em servidores fora do Brasil, inclusive nos Estados Unidos (transferência internacional, arts. 33 a 36 da LGPD).<!-- EDITE AQUI: validar com o jurídico o mecanismo de transferência de cada serviço (cláusulas-padrão da ANPD ou outro do art. 33) e, se for cláusula-padrão, publicar as informações exigidas pela Res. CD/ANPD 19/2024. --> O Dr. Denildo Sobrinho, como controlador, responde pelas decisões sobre o tratamento. Nenhum dado é vendido.</p>
+
+  <h2>9. Links externos</h2>
   <p>O site contém links para WhatsApp, Google Maps e Instagram. Ao acessá-los, você passa a estar sujeito aos termos e políticas de privacidade dessas plataformas, que não são controladas por este site.</p>
 
-  <h2>7. Seus direitos (LGPD)</h2>
-  <p>Nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você pode solicitar informações sobre tratamento de dados relacionados ao seu atendimento. Como este site não armazena dados, solicitações referem-se aos canais de atendimento (por exemplo, conversas de WhatsApp com a equipe). Para exercê-los, fale conosco pelo <a href="https://wa.me/5555992112028" target="_blank" rel="noopener noreferrer">WhatsApp (55) 99211-2028</a>.</p>
+  <h2>10. Seus direitos (LGPD, art. 18)</h2>
+  <p>Você pode pedir ao controlador, de forma gratuita:</p>
+  <ul>
+    <li>confirmação de que existe tratamento dos seus dados e acesso a eles;</li>
+    <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+    <li>anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com a lei;</li>
+    <li>portabilidade dos dados a outro fornecedor de serviço;</li>
+    <li>eliminação dos dados tratados com base no seu consentimento;</li>
+    <li>informação sobre as entidades públicas e privadas com quem os dados foram compartilhados;</li>
+    <li>informação sobre a possibilidade de não consentir e as consequências da recusa (neste site, nenhuma: tudo funciona do mesmo jeito);</li>
+    <li>revogação do consentimento, que você pode fazer direto na página <a href="preferencias-cookies.html">Preferências de Cookies</a>;</li>
+    <li>oposição a tratamento feito com base em legítimo interesse, quando houver descumprimento da LGPD (art. 18, § 2º).</li>
+  </ul>
+  <p>Para exercer esses direitos, fale pelo <a href="https://wa.me/5555992112028" target="_blank" rel="noopener noreferrer">WhatsApp (55) 99211-2028</a>. Você também pode peticionar à Agência Nacional de Proteção de Dados (ANPD) e aos órgãos de defesa do consumidor.</p>
 
-  <h2>8. Alterações desta política</h2>
-  <p>Esta política pode ser atualizada para refletir mudanças no site. A data da última atualização aparece no topo da página.</p>
+  <h2>11. Alterações desta política</h2>
+  <p>Esta política pode ser atualizada para refletir mudanças no site. Se a finalidade da medição mudar, o aviso vem antes, e o consentimento é pedido de novo. A data da última atualização aparece no topo da página.</p>
 
   <div class="note">Dúvidas sobre privacidade? Fale com a equipe pelo WhatsApp (55) 99211-2028, Rua Marechal Floriano Peixoto, 1293, Centro, Cruz Alta/RS.</div>
 </main>

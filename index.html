@@ -27,10 +27,11 @@
 <meta name="twitter:description" content="Transplante capilar FUE fio a fio com avaliação individualizada em Cruz Alta e Encantado, RS.">
 <meta name="twitter:image" content="https://drdenildo.com.br/og-denildo.png">
 <meta name="twitter:image:alt" content="Dr. Denildo Sobrinho, Transplante Capilar">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'none'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<script src="consent.js?v=1" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Physician","name":"Dr. Denildo Sobrinho","description":"Médico especialista em transplante capilar FUE fio a fio. Atende em Cruz Alta e Encantado, RS. Protocolo personalizado, acompanhamento contínuo. Valores definidos após avaliação individual.","medicalSpecialty":"Transplante Capilar","identifier":{"@type":"PropertyValue","name":"CRM","value":"55898/RS"},"url":"https://drdenildo.com.br","image":"https://drdenildo.com.br/og-denildo.png","sameAs":["https://www.instagram.com/dr.denildosobrinho/"],"areaServed":[{"@type":"City","name":"Cruz Alta"},{"@type":"City","name":"Encantado"}],"address":[{"@type":"PostalAddress","streetAddress":"Rua Marechal Floriano Peixoto, 1293","addressLocality":"Cruz Alta","addressRegion":"RS","addressCountry":"BR"},{"@type":"PostalAddress","streetAddress":"Rua Monsenhor Scalabrini, 1109, Sala 01","addressLocality":"Encantado","addressRegion":"RS","addressCountry":"BR"}],"openingHours":"Mo-Sa 09:00-19:00"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2059,6 +2060,7 @@ function qzOpen(preselect){
   qz.classList.add('open');
   qz.setAttribute('aria-hidden','false');
   doc.body.style.overflow='hidden';
+  var ck=$('.ck');if(ck)ck.inert=true;
   lastFocus=doc.activeElement;
   var c=$('.qz__close',qz);if(c)c.focus();
 }
@@ -2066,6 +2068,7 @@ function qzClose(){
   qz.classList.remove('open');
   qz.setAttribute('aria-hidden','true');
   doc.body.style.overflow='';
+  var ck=$('.ck');if(ck)ck.inert=false;
   if(lastFocus&&lastFocus.focus)lastFocus.focus();
 }
 function selectOpt(btn){
@@ -2113,9 +2116,9 @@ var nwMap={'Nível II':'Nível II','Nível III':'Nível III','Nível III Vertex'
 $$('.nw__card').forEach(function(card){
   card.addEventListener('click',function(){qzOpen(nwMap[card.getAttribute('data-nw')]||null)});
 });
-/* Auto-open once per session at ~55% scroll */
+/* Auto-open once per session at ~55% scroll (waits for the cookie notice to be answered) */
 function quizAutoCheck(y,max){
-  if(qzShown||max<=0)return;
+  if(qzShown||max<=0||doc.body.classList.contains('ck-open'))return;
   if(y/max>.55)qzOpen(null);
 }
 

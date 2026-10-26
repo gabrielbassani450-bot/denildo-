@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Política de Cookies | Dr. Denildo Sobrinho</title>
-<meta name="description" content="Política de cookies do site do Dr. Denildo Sobrinho: este site não usa cookies próprios nem rastreamento.">
+<meta name="description" content="Política de cookies do site do Dr. Denildo Sobrinho: quais cookies existem, para que servem e como aceitar ou recusar a medição de visitas.">
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#0B1120">
 <link rel="canonical" href="https://drdenildo.com.br/cookies.html">
 <link rel="icon" type="image/png" href="favicon-denildo.png" sizes="any">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<script src="consent.js?v=1" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
@@ -37,11 +38,11 @@ a{color:var(--gold-lt)}
 a:hover{color:#fff}
 .tbl{width:100%;border:1px solid var(--g200);border-radius:12px;border-collapse:separate;border-spacing:0;overflow:hidden;margin:0 0 14px;font-size:13.5px}
 .tbl th,.tbl td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--g200)}
-.tbl th{background:rgba(8,13,24,.6);color:var(--gold);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.tbl th{background:rgba(8,13,24,.6);color:var(--gold);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
 .tbl tr:last-child td{border-bottom:none}
 .note{margin-top:52px;padding:20px 24px;border:1px solid var(--g200);border-radius:14px;background:rgba(17,30,53,.5);font-size:13.5px;color:var(--g700)}
 .tblwrap{overflow-x:auto}
-@media(max-width:640px){.nav__i{padding:12px 20px}main{padding:52px 20px 72px}}
+@media(max-width:640px){.nav__i{padding:12px 20px}main{padding:52px 20px 72px}.tbl{font-size:13px}.tbl th,.tbl td{padding:11px 10px}.tbl td:first-child{overflow-wrap:anywhere}}
 </style>
 </head>
 <body>
@@ -53,32 +54,42 @@ a:hover{color:#fff}
 </nav>
 <main>
   <h1>Política de <em>Cookies</em></h1>
-  <p class="upd">Última atualização: agosto de 2026</p>
+  <p class="upd">Última atualização: outubro de 2026</p>
 
   <h2>1. Este site usa cookies?</h2>
-  <p><strong>Não. Este site não define cookies próprios.</strong> Também não utiliza cookies de análise de audiência (analytics), de publicidade ou de rastreamento de qualquer natureza. Por isso, não exibimos banner de consentimento de cookies, pois não há cookie opcional a aceitar ou recusar.</p>
+  <p><strong>Sim, mas só se você permitir.</strong> Os únicos cookies do site são os de medição de visitas do Google Analytics, criados apenas depois que você toca em <strong>Aceitar</strong> no aviso de cookies. Se você recusar ou não escolher, nenhum cookie é criado e o site funciona do mesmo jeito. Não usamos cookies de publicidade.</p>
 
-  <h2>2. O que o site usa no lugar</h2>
-  <p>Para funcionar bem, o site guarda duas marcações técnicas no <strong>armazenamento de sessão</strong> do seu navegador (<em>sessionStorage</em>), que não são cookies, não são enviadas a nenhum servidor e são apagadas automaticamente ao fechar a aba:</p>
+  <h2>2. Cookies de medição (opcionais)</h2>
+  <div class="tblwrap">
+  <table class="tbl">
+    <tr><th>Cookie</th><th>Função</th><th>Duração</th></tr>
+    <tr><td><strong>_ga</strong></td><td>Distinguir visitantes por um identificador aleatório, para contar primeiras visitas e retornos</td><td>Até 2 anos</td></tr>
+    <tr><td><strong>_ga_5QQS0CVFVX</strong></td><td>Manter o estado da visita em andamento</td><td>Até 2 anos</td></tr>
+  </table>
+  </div>
+  <p>Esses cookies ficam no domínio deste site, mas são criados e lidos pelo Google Analytics, serviço do Google. A medição está configurada sem os sinais do Google e sem personalização de anúncios. O que é medido, por quanto tempo e com quem é compartilhado está na <a href="privacidade.html">Política de Privacidade</a>.</p>
+
+  <h2>3. Armazenamento técnico (necessário)</h2>
+  <p>Para funcionar bem, o site guarda no seu navegador três marcações que não são cookies, não identificam você e não são enviadas a nenhum servidor:</p>
   <div class="tblwrap">
   <table class="tbl">
     <tr><th>Item</th><th>Função</th><th>Duração</th></tr>
-    <tr><td><strong>qzSeen</strong></td><td>Evita que o questionário de autoavaliação reabra sozinho mais de uma vez na mesma visita</td><td>Até fechar a aba</td></tr>
-    <tr><td><strong>stickyClosed</strong></td><td>Lembra que você fechou a barra de agendamento no rodapé da tela</td><td>Até fechar a aba</td></tr>
+    <tr><td><strong>dnCk</strong></td><td>Guardar a sua escolha no aviso de cookies e a data em que ela foi feita (<em>localStorage</em>)</td><td>12 meses</td></tr>
+    <tr><td><strong>qzSeen</strong></td><td>Evitar que o questionário de autoavaliação reabra sozinho mais de uma vez na mesma visita (<em>sessionStorage</em>)</td><td>Até fechar a aba</td></tr>
+    <tr><td><strong>stickyClosed</strong></td><td>Lembrar que você fechou a barra de agendamento no rodapé da tela (<em>sessionStorage</em>)</td><td>Até fechar a aba</td></tr>
   </table>
   </div>
-  <p>Nenhuma dessas marcações identifica você, registra navegação ou sai do seu dispositivo.</p>
 
-  <h2>3. Vídeos do YouTube (terceiros)</h2>
-  <p>Os vídeos do site usam o domínio <strong>youtube-nocookie.com</strong> (modo de privacidade ampliada do YouTube) e <strong>só carregam depois que você clica no botão de play</strong>. Antes do clique, nada é solicitado ao Google. Após o clique, o player do YouTube pode utilizar armazenamento próprio conforme as políticas do Google, prática fora do controle deste site.</p>
+  <h2>4. Vídeos do YouTube (terceiros)</h2>
+  <p>Os vídeos do site usam o domínio <strong>youtube-nocookie.com</strong> (modo de privacidade ampliada do YouTube) e <strong>só carregam depois que você clica no botão de play</strong>. Antes do clique, nada é solicitado ao YouTube. Após o clique, o player do YouTube pode utilizar armazenamento próprio conforme as políticas do Google, prática fora do controle deste site.</p>
 
-  <h2>4. Links externos</h2>
+  <h2>5. Links externos</h2>
   <p>Ao tocar em links de WhatsApp, Google Maps ou Instagram, você é levado a plataformas de terceiros que possuem políticas de cookies próprias.</p>
 
-  <h2>5. Como limpar os dados deste site</h2>
-  <p>As marcações de sessão somem sozinhas ao fechar a aba. Se quiser removê-las manualmente, use a página de <a href="preferencias-cookies.html">Preferências de Cookies</a> ou limpe os dados de navegação nas configurações do seu navegador.</p>
+  <h2>6. Como mudar a sua escolha</h2>
+  <p>Você pode aceitar ou recusar a medição a qualquer momento na página de <a href="preferencias-cookies.html">Preferências de Cookies</a>, que também apaga de uma vez os dados deste site do seu navegador. Outra opção é limpar os dados de navegação nas configurações do seu navegador. Depois de 12 meses, o aviso aparece de novo para você confirmar a escolha.</p>
 
-  <div class="note">Em resumo: nenhum cookie próprio, nenhum rastreamento, nenhum dado enviado a servidores, e vídeos de terceiros só carregam com o seu clique.</div>
+  <div class="note">Em resumo: cookies só de medição de visitas e só com a sua permissão, sem publicidade. Vídeos de terceiros só carregam com o seu clique.</div>
 </main>
 </body>
 </html>
