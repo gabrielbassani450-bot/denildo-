@@ -1,25 +1,30 @@
-/* ═══ Consentimento de cookies + Google Analytics ═══
-   Tag G-5QQS0CVFVX. Nada do Google carrega antes do aceite (LGPD, guia de cookies da ANPD).
+/* ═══ Consentimento de cookies + Google Analytics + Microsoft Clarity ═══
+   GA4 G-5QQS0CVFVX e Clarity z3veztrw2x. Nada carrega antes do aceite (LGPD, guia de cookies da ANPD).
    Escolha guardada em localStorage (dnCk) por 12 meses; depois é apagada e o aviso volta.
-   Uso: <script src="consent.js?v=1" defer></script> no <head> de cada página. */
+   VERSION sobe quando muda o que o aceite cobre: aceite de versão anterior volta a ser perguntado.
+   Gravação segurada: enquanto <html> tiver data-rec-hold, o Clarity não grava; a página chama
+   window.dnRec.hold() ao marcar e window.dnRec.release() ao desmarcar (ver index.html).
+   Uso: <script src="consent.js?v=3" defer></script> no <head> de cada página. */
 (function(){
 'use strict';
-var GA_ID='G-5QQS0CVFVX',KEY='dnCk',MAX_AGE=365*864e5;
-var win=window,doc=document,root=doc.documentElement,loaded=false,bar=null,current=null,ro=null;
+var GA_ID='G-5QQS0CVFVX',CLARITY_ID='z3veztrw2x',KEY='dnCk',VERSION=2,MAX_AGE=365*864e5;
+var win=window,doc=document,root=doc.documentElement,loaded=false,clarityOn=false,stopped=false,bar=null,current=null,ro=null;
 
 function read(){
   try{
     var v=JSON.parse(win.localStorage.getItem(KEY)||'null');
     if(v&&(v.s==='granted'||v.s==='denied')){
-      if(Date.now()-v.t<MAX_AGE)return v.s;
-      win.localStorage.removeItem(KEY);
+      if(Date.now()-v.t>=MAX_AGE){win.localStorage.removeItem(KEY);return null}
+      /* aceite dado antes do Clarity (v1) não cobre a gravação: pergunta de novo */
+      if(v.s==='granted'&&(v.v||1)<VERSION)return null;
+      return v.s;
     }
   }catch(e){}
   return null;
 }
 function save(s){
   current=s;
-  try{win.localStorage.setItem(KEY,JSON.stringify({s:s,t:Date.now(),v:1}))}catch(e){}
+  try{win.localStorage.setItem(KEY,JSON.stringify({s:s,t:Date.now(),v:VERSION}))}catch(e){}
 }
 
 /* gtag padrão do Google; consentimento começa negado para tudo */
@@ -38,26 +43,62 @@ function loadGA(){
   s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
   doc.head.appendChild(s);
 }
-function clearGACookies(){
+/* tag padrão do Clarity; armazenamento para publicidade sempre negado */
+function loadClarity(){
+  clarityOn=true;
+  win.clarity=win.clarity||function(){(win.clarity.q=win.clarity.q||[]).push(arguments)};
+  win.clarity('consentv2',{ad_Storage:'denied',analytics_Storage:'granted'});
+  var s=doc.createElement('script');
+  s.async=true;
+  s.src='https://www.clarity.ms/tag/'+CLARITY_ID;
+  doc.head.appendChild(s);
+}
+function held(){return root.hasAttribute('data-rec-hold')}
+/* o Clarity carregado troca window.clarity por uma função marcada com .v; depois de um stop volta a ser fila */
+function live(){return typeof win.clarity==='function'&&!!win.clarity.v}
+/* stop envia o que o Clarity já juntou e desliga a gravação, por isso a página segura antes de qualquer
+   interação sensível; pause não serve, porque o Clarity continua juntando e envia tudo ao retomar */
+function stopClarity(){
+  if(!clarityOn)return;
+  if(live()){stopped=true;win.clarity('stop');return}
+  /* script ainda carregando: o stop entra na fila e roda logo depois do start do próprio Clarity */
+  if(!stopped){stopped=true;win.clarity('stop')}
+}
+/* start depois de um stop recomeça a gravação na mesma página (o Clarity conta como nova página vista) */
+function startClarity(){
+  if(held())return;
+  if(!clarityOn){loadClarity();return}
+  if(!stopped)return;
+  stopped=false;
+  if(!live())win.clarity('start');
+}
+function clearCookies(){
   var parts=win.location.hostname.split('.'),domains=[''];
   for(var i=0;i<parts.length-1;i++)domains.push('; domain=.'+parts.slice(i).join('.'));
   doc.cookie.split(';').forEach(function(c){
     var n=c.split('=')[0].trim();
-    if(n==='_ga'||n.indexOf('_ga_')===0||n==='_gid'||n.indexOf('_gat')===0){
+    if(n==='_ga'||n.indexOf('_ga_')===0||n==='_gid'||n.indexOf('_gat')===0||n==='_clck'||n==='_clsk'){
       domains.forEach(function(d){doc.cookie=n+'=; Max-Age=0; path=/'+d});
     }
   });
+  try{win.sessionStorage.removeItem('_cltk')}catch(e){}
 }
 /* applyX muda só o estado da página; grant/deny também gravam a escolha */
 function applyGrant(){
   win['ga-disable-'+GA_ID]=false;
   if(loaded)gtag('consent','update',{analytics_storage:'granted'});
   else loadGA();
+  startClarity();
 }
+/* stop vem antes de tudo: um consentv2 negado faria o Clarity reiniciar sem cookies e enviar mais um lote */
 function applyDeny(){
+  var loading=clarityOn&&!stopped&&!live();
+  stopClarity();
   if(loaded)gtag('consent','update',{analytics_storage:'denied'});
   win['ga-disable-'+GA_ID]=true;
-  clearGACookies();
+  clearCookies();
+  /* recusa logo após o aceite: o Clarity ainda cria os cookies ao terminar de carregar, antes do stop da fila */
+  if(loading)setTimeout(clearCookies,5000);
 }
 function grant(){save('granted');applyGrant()}
 function deny(){save('denied');applyDeny()}
@@ -69,7 +110,7 @@ function clearAll(){
 
 /* ── Aviso (primeiro nível): Recusar e Aceitar com o mesmo peso ── */
 var CSS=''+
-'.ck{position:fixed;z-index:1100;left:24px;bottom:24px;width:min(400px,calc(100vw - 48px));padding:20px 20px 18px;background:rgba(8,13,24,.96);border:1px solid rgba(192,169,106,.24);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.54);color:#C2D2E8;font-family:"DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;opacity:1;transform:none;transition:opacity .28s cubic-bezier(.23,1,.32,1),transform .28s cubic-bezier(.23,1,.32,1)}'+
+'.ck{position:fixed;z-index:1100;left:24px;bottom:24px;width:min(400px,calc(100vw - 48px));padding:20px 20px 18px;background:rgba(8,13,24,.96);border:1px solid rgba(192,169,106,.24);border-radius:14px;box-shadow:0 16px 44px rgba(0,0,0,.54);color:#C2D2E8;font-family:"DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;max-height:calc(100vh - 48px);overflow-y:auto;overscroll-behavior:contain;opacity:1;transform:none;transition:opacity .28s cubic-bezier(.23,1,.32,1),transform .28s cubic-bezier(.23,1,.32,1)}'+
 '@starting-style{.ck{opacity:0;transform:translateY(12px)}}'+
 '.ck--out{opacity:0;transform:translateY(8px);transition-duration:.18s;pointer-events:none}'+
 '.ck__t{margin:0;font-size:13.5px;line-height:1.6;font-weight:300;letter-spacing:0}'+
@@ -83,7 +124,7 @@ var CSS=''+
 /* reserva o espaço do aviso: o fim da página e o foco do teclado nunca ficam por baixo dele */
 'html.ck-open{scroll-padding-bottom:calc(var(--ckh,200px) + 36px)}'+
 'body.ck-open{padding-bottom:calc(var(--ckh,200px) + 36px)}'+
-'@media(max-width:960px){.ck{left:12px;right:12px;width:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:16px 16px 14px}body.ck-open .waf,body.ck-open .sticky{visibility:hidden}}'+
+'@media(max-width:960px){.ck{left:12px;right:12px;width:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));max-height:calc(100svh - 24px - env(safe-area-inset-bottom,0px));padding:16px 16px 14px}body.ck-open .waf,body.ck-open .sticky{visibility:hidden}}'+
 '@media(prefers-reduced-motion:reduce){.ck{transition-property:opacity}}';
 
 function measure(){if(bar)root.style.setProperty('--ckh',bar.offsetHeight+'px')}
@@ -109,7 +150,7 @@ function showBar(){
   bar.className='ck';
   bar.setAttribute('role','region');
   bar.setAttribute('aria-label','Aviso de cookies');
-  bar.innerHTML='<p class="ck__t"><strong>Medição de visitas.</strong> Com a sua permissão, usamos cookies do Google Analytics para entender, de forma estatística, como o site é usado e avaliar a divulgação do consultório. Sem ela, nada é ativado. <a href="cookies.html">Política de Cookies</a></p>'+
+  bar.innerHTML='<p class="ck__t"><strong>Medição de visitas.</strong> Com a sua permissão, usamos Google Analytics e Microsoft Clarity para entender como o site é usado e avaliar a divulgação do consultório. O Clarity grava a navegação na página, sem o que você digita, e a Microsoft pode usar esses dados para fins próprios, inclusive publicidade. Sem permissão, nada é ativado. <a href="cookies.html">Política de Cookies</a></p>'+
     '<div class="ck__a"><button type="button" class="ck__b" data-ck="denied">Recusar</button><button type="button" class="ck__b" data-ck="granted">Aceitar</button></div>';
   bar.addEventListener('click',function(e){
     var b=e.target.closest('[data-ck]');
@@ -141,8 +182,8 @@ function hideBar(){
 
 /* ── Página de preferências: [data-ck-state], [data-ck-set], [data-ck-clear] ── */
 var MSG={
-  granted:'Medição ativada. Você aceitou os cookies do Google Analytics.',
-  denied:'Medição desativada. Você recusou os cookies do Google Analytics.',
+  granted:'Medição ativada. Você aceitou o Google Analytics e o Microsoft Clarity.',
+  denied:'Medição desativada. Você recusou o Google Analytics e o Microsoft Clarity.',
   none:'Você ainda não escolheu. A medição fica desativada até você aceitar.'
 };
 /* reescreve o texto com atraso curto para o leitor de tela anunciar mesmo sem mudança */
@@ -182,22 +223,35 @@ function sync(){
   current=s;
   if(s==='granted'){applyGrant();hideBar()}
   else{
-    if(loaded||win['ga-disable-'+GA_ID]===false)applyDeny();
+    if(loaded||clarityOn||win['ga-disable-'+GA_ID]===false)applyDeny();
     if(s==='denied')hideBar();else showBar();
   }
   paint(false);
 }
 
+win.dnRec={
+  hold:stopClarity,
+  release:function(){if(current==='granted')startClarity()}
+};
+
 var choice=read();
 current=choice;
-if(choice==='granted')loadGA();
-else if(choice==='denied')win['ga-disable-'+GA_ID]=true;
+if(choice==='granted'){loadGA();startClarity()}
+else if(choice==='denied'){win['ga-disable-'+GA_ID]=true;clearCookies()}
 
 function onReady(){
   bindPanel();
   if(!choice)showBar();
 }
 if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',onReady);else onReady();
-win.addEventListener('pageshow',function(e){if(e.persisted)sync()});
+/* o Clarity se desliga sozinho ao sair da página e se religa sozinho ao voltar pelo cache;
+   este pagehide roda antes do dele, e o pageshow em captura decide antes dele e o barra se a
+   escolha for recusar ou se a página estiver segurando a gravação */
+win.addEventListener('pagehide',function(){if(clarityOn&&live())stopped=true});
+win.addEventListener('pageshow',function(e){
+  if(!e.persisted)return;
+  sync();
+  if(clarityOn&&(current!=='granted'||held()))e.stopImmediatePropagation();
+},true);
 win.addEventListener('storage',function(e){if(e.key===KEY||e.key===null)sync()});
 })();

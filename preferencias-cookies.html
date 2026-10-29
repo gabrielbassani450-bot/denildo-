@@ -9,10 +9,10 @@
 <meta name="theme-color" content="#0B1120">
 <link rel="canonical" href="https://drdenildo.com.br/preferencias-cookies.html">
 <link rel="icon" type="image/png" href="favicon-denildo.png" sizes="any">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms https://c.bing.com; connect-src https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com https://*.clarity.ms https://c.bing.com; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<script src="consent.js?v=1" defer></script>
+<script src="consent.js?v=3" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@ a:hover{color:#fff}
   <p class="upd">Última atualização: outubro de 2026</p>
 
   <h2>1. Medição de visitas</h2>
-  <p>O site usa cookies do <strong>Google Analytics</strong> para medir as visitas de forma estatística, e só com a sua permissão. Recusar não muda nada no uso do site. Detalhes na <a href="cookies.html">Política de Cookies</a>.</p>
+  <p>O site usa o <strong>Google Analytics</strong> para medir as visitas de forma estatística e o <strong>Microsoft Clarity</strong> para gravar a navegação (cliques, toques, rolagem e movimentos do mouse, sem o que você digita), e só com a sua permissão. A Microsoft pode usar os dados do Clarity também para fins próprios, inclusive publicidade, conforme a <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer">Declaração de Privacidade da Microsoft</a>. Recusar não muda nada no uso do site. Detalhes na <a href="cookies.html">Política de Cookies</a> e na <a href="privacidade.html">Política de Privacidade</a>.</p>
   <p class="state" data-ck-state role="status">A medição fica desativada até você aceitar.</p>
   <div class="acts">
     <button type="button" class="opt" data-ck-set="granted">Aceitar medição</button>
@@ -78,6 +78,8 @@ a:hover{color:#fff}
   <table class="tbl">
     <tr><th>Item</th><th>Função</th><th>Identifica você?</th></tr>
     <tr><td><strong>_ga</strong><br><strong>_ga_5QQS0CVFVX</strong></td><td>Cookies de medição do Google Analytics, só se você aceitar</td><td>Só por código aleatório</td></tr>
+    <tr><td><strong>_clck</strong><br><strong>_clsk</strong></td><td>Cookies do Microsoft Clarity, só se você aceitar</td><td>Só por código aleatório</td></tr>
+    <tr><td><strong>_cltk</strong></td><td>Marcação de aba do Microsoft Clarity, só se você aceitar, até fechar a aba</td><td>Só por código aleatório</td></tr>
     <tr><td><strong>dnCk</strong></td><td>Guardar a sua escolha sobre cookies por 12 meses</td><td>Não</td></tr>
     <tr><td><strong>qzSeen</strong></td><td>Não reabrir o questionário automaticamente</td><td>Não</td></tr>
     <tr><td><strong>stickyClosed</strong></td><td>Manter fechada a barra de agendamento</td><td>Não</td></tr>
@@ -85,7 +87,7 @@ a:hover{color:#fff}
   </div>
 
   <h2>3. Limpar agora</h2>
-  <p>Se quiser, remova de uma vez todos os dados deste site do seu navegador. Isso também desativa a medição, e o aviso de cookies volta a aparecer na próxima página que você abrir.</p>
+  <p>Se quiser, remova de uma vez todos os dados deste site do seu navegador. Isso também desativa a medição, e o aviso de cookies volta a aparecer na próxima página que você abrir. Cookies que a Microsoft define nos próprios domínios (clarity.ms e bing.com) só saem pelas configurações do navegador, no item 4.</p>
   <p id="okMsg" class="ok" role="status">Pronto. Os dados deste site foram removidos do seu navegador.</p>
   <button type="button" class="clr" data-ck-clear="okMsg">Limpar dados deste site</button>
 
@@ -94,6 +96,7 @@ a:hover{color:#fff}
     <li><strong>Chrome / Edge:</strong> Configurações → Privacidade e segurança → Cookies e dados do site → Ver todos os dados → busque o endereço do site → remover.</li>
     <li><strong>Safari (iPhone):</strong> Ajustes → Safari → Avançado → Dados dos Sites → busque o site → apagar.</li>
     <li><strong>Firefox:</strong> Configurações → Privacidade e Segurança → Cookies e dados de sites → Gerenciar dados.</li>
+    <li><strong>Cookies da Microsoft:</strong> na mesma tela, busque também clarity.ms e bing.com e remova os dois.</li>
   </ul>
 
   <h2>5. Vídeos do YouTube</h2>

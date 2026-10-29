@@ -27,11 +27,11 @@
 <meta name="twitter:description" content="Transplante capilar FUE fio a fio com avaliação individualizada em Cruz Alta e Encantado, RS.">
 <meta name="twitter:image" content="https://drdenildo.com.br/og-denildo.png">
 <meta name="twitter:image:alt" content="Dr. Denildo Sobrinho, Transplante Capilar">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com https://*.clarity.ms https://c.bing.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<script src="consent.js?v=1" defer></script>
+<script src="consent.js?v=3" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Physician","name":"Dr. Denildo Sobrinho","description":"Médico especialista em transplante capilar FUE fio a fio. Atende em Cruz Alta e Encantado, RS. Protocolo personalizado, acompanhamento contínuo. Valores definidos após avaliação individual.","medicalSpecialty":"Transplante Capilar","identifier":{"@type":"PropertyValue","name":"CRM","value":"55898/RS"},"url":"https://drdenildo.com.br","image":"https://drdenildo.com.br/og-denildo.png","sameAs":["https://www.instagram.com/dr.denildosobrinho/"],"areaServed":[{"@type":"City","name":"Cruz Alta"},{"@type":"City","name":"Encantado"}],"address":[{"@type":"PostalAddress","streetAddress":"Rua Marechal Floriano Peixoto, 1293","addressLocality":"Cruz Alta","addressRegion":"RS","addressCountry":"BR"},{"@type":"PostalAddress","streetAddress":"Rua Monsenhor Scalabrini, 1109, Sala 01","addressLocality":"Encantado","addressRegion":"RS","addressCountry":"BR"}],"openingHours":"Mo-Sa 09:00-19:00"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1111,7 +1111,7 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
       <h2 class="t2">Selecione seu nível de calvície e <em>fale conosco agora!</em></h2>
       <p class="lead">Responda nosso questionário em menos de 1 minuto, entenda melhor o seu estágio de queda e ganhe um presente: 50% de desconto na primeira avaliação.</p>
     </div>
-    <div class="nw__grid">
+    <div class="nw__grid" data-clarity-mask="True">
       <button class="nw__card rv" data-nw="Nível I" type="button">
         <svg class="nw__svg" aria-hidden="true"><use href="#nw1"/></svg>
         <span class="nw__lvl">Nível I</span>
@@ -1749,7 +1749,7 @@ a.lc:hover{border-color:rgba(192,169,106,.5);transform:translateY(-4px);box-shad
 </div>
 
 <!-- ═══ QUIZ MODAL ═══════════════════════════════ -->
-<div class="qz" id="quiz" role="dialog" aria-modal="true" aria-labelledby="qzTitle" aria-hidden="true">
+<div class="qz" id="quiz" role="dialog" aria-modal="true" aria-labelledby="qzTitle" aria-hidden="true" data-clarity-mask="True">
   <div class="qz__bg" data-quiz-close></div>
   <div class="qz__box">
     <button class="qz__close" type="button" data-quiz-close aria-label="Fechar">
@@ -2050,8 +2050,26 @@ function qzPane(n){
   $$('.qz__pane',qz).forEach(function(p){p.classList.toggle('on',p.getAttribute('data-pane')===String(n))});
   var box=$('.qz__box',qz);if(box)box.scrollTop=0;
 }
+/* Clarity: estágio de queda é dado de saúde. Com o questionário aberto, ou com a escala de Norwood
+   na tela depois que o cursor, o toque ou o foco chegam nela, <html data-rec-hold> segura a gravação.
+   O consent.js para o Clarity com stop, que envia o que já foi juntado antes de desligar: a trava
+   precisa vir antes de qualquer clique, toque ou mudança na página que revele a resposta. */
+var recWhy={};
+function recHold(why){
+  recWhy[why]=1;
+  doc.documentElement.setAttribute('data-rec-hold','');
+  if(win.dnRec)win.dnRec.hold();
+}
+function recRelease(why,quiet){
+  delete recWhy[why];
+  if(Object.keys(recWhy).length)return;
+  doc.documentElement.removeAttribute('data-rec-hold');
+  if(!quiet&&win.dnRec)win.dnRec.release();
+}
 function qzOpen(preselect){
+  recHold('qz');
   markSeen();
+  qzRestore();
   if(preselect){
     var opt=$$('.qz__opt',qz).filter(function(o){return o.getAttribute('data-val')===preselect})[0];
     if(opt)selectOpt(opt);
@@ -2064,12 +2082,26 @@ function qzOpen(preselect){
   lastFocus=doc.activeElement;
   var c=$('.qz__close',qz);if(c)c.focus();
 }
-function qzClose(){
+/* respostas saem do DOM antes de a gravação voltar, senão o retrato novo da página levaria a opção marcada;
+   ficam só em qzState e voltam ao DOM na próxima abertura, quando a gravação já parou */
+function qzSync(on){
+  $$('.qz__opt',qz).forEach(function(o){o.classList.toggle('sel',on&&o.getAttribute('data-val')===qzState.nivel)});
+  $$('.qz__radio',qz).forEach(function(o){o.classList.toggle('sel',on&&o.getAttribute('data-val')===qzState.tempo)});
+  nameInput.value=on?qzState.nome:'';
+  $('[data-next="2"]',qz).disabled=!(on&&qzState.nivel);
+  $('[data-next="3"]',qz).disabled=!(on&&qzState.tempo);
+  $('#qzSend').disabled=!(on&&qzState.nome.length>=2);
+}
+function qzRestore(){qzSync(true)}
+function qzReset(){qzSync(false);qzPane(1)}
+function qzClose(quiet){
   qz.classList.remove('open');
   qz.setAttribute('aria-hidden','true');
   doc.body.style.overflow='';
   var ck=$('.ck');if(ck)ck.inert=false;
   if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  qzReset();
+  recRelease('qz',quiet===true);
 }
 function selectOpt(btn){
   $$('.qz__opt',qz).forEach(function(o){o.classList.remove('sel')});
@@ -2116,6 +2148,17 @@ var nwMap={'Nível II':'Nível II','Nível III':'Nível III','Nível III Vertex'
 $$('.nw__card').forEach(function(card){
   card.addEventListener('click',function(){qzOpen(nwMap[card.getAttribute('data-nw')]||null)});
 });
+/* pointerenter vem antes de mousedown e touchstart: o Clarity para antes de registrar o toque num nível */
+var nwGrid=$('.nw__grid');
+if(nwGrid){
+  nwGrid.addEventListener('pointerenter',function(){recHold('nw')});
+  nwGrid.addEventListener('focusin',function(){recHold('nw')});
+  if('IntersectionObserver' in win)new IntersectionObserver(function(es){
+    if(!es[es.length-1].isIntersecting&&recWhy.nw)recRelease('nw');
+  }).observe(nwGrid);
+}
+/* saída da página com o questionário aberto: limpa sem religar; no retorno pelo cache o consent.js religa */
+win.addEventListener('pagehide',function(){if(qz.classList.contains('open'))qzClose(true)});
 /* Auto-open once per session at ~55% scroll (waits for the cookie notice to be answered) */
 function quizAutoCheck(y,max){
   if(qzShown||max<=0||doc.body.classList.contains('ck-open'))return;
